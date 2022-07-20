@@ -1637,27 +1637,27 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#200-dev-98" class="md-nav__link">
+  <a href="#200-dev-98-rpgmenu-merge" class="md-nav__link">
     <span class="md-ellipsis">
-      2.0.0-DEV-98
+      2.0.0-DEV-98 - RPGMenu Merge
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#200-dev-238" class="md-nav__link">
+  <a href="#200-dev-238-package-structure-rework" class="md-nav__link">
     <span class="md-ellipsis">
-      2.0.0-DEV-238
+      2.0.0-DEV-238 - Package Structure Rework
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#200-dev-337" class="md-nav__link">
+  <a href="#200-dev-337-event-scheduling-rework" class="md-nav__link">
     <span class="md-ellipsis">
-      2.0.0-DEV-337
+      2.0.0-DEV-337 - Event Scheduling Rework
     </span>
   </a>
   
@@ -2430,27 +2430,27 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#200-dev-98" class="md-nav__link">
+  <a href="#200-dev-98-rpgmenu-merge" class="md-nav__link">
     <span class="md-ellipsis">
-      2.0.0-DEV-98
+      2.0.0-DEV-98 - RPGMenu Merge
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#200-dev-238" class="md-nav__link">
+  <a href="#200-dev-238-package-structure-rework" class="md-nav__link">
     <span class="md-ellipsis">
-      2.0.0-DEV-238
+      2.0.0-DEV-238 - Package Structure Rework
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#200-dev-337" class="md-nav__link">
+  <a href="#200-dev-337-event-scheduling-rework" class="md-nav__link">
     <span class="md-ellipsis">
-      2.0.0-DEV-337
+      2.0.0-DEV-337 - Event Scheduling Rework
     </span>
   </a>
   
@@ -2481,63 +2481,130 @@
 
   <h1>Migration</h1>
 
-<p>This migration guide currently needs to be done manually. As long as BQ 2.0 is in development, this will not change!</p>
-<p>Before you start migrating, you should <strong>backup your system</strong>!</p>
-<p>Also check your current version, so you know which migration steps you need to do.</p>
+<p>This guide explains how to migrate from BetonQuest 1.12.X or any BetonQuest 2.0.0 dev build to the latest BetonQuest
+2.0.0 dev build.
+The migration must be done manually. This will not change while BQ 2.0 is in development!</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Before you start migrating, you should <strong>backup your server</strong>!</p>
+</div>
 <h2 id="changes">Changes<a class="headerlink" href="#changes" title="Permanent link">🔗</a></h2>
-<p>Skip to the first version that is above the version that you used before starting the migration:</p>
-<p>Changes introduced in:</p>
+<p>Skip to the first version that is newer than the version that you're migrating from:</p>
 <ul>
-<li><a href="#200-dev-98">2.0.0-DEV-98</a></li>
-<li><a href="#200-dev-238">2.0.0-DEV-238</a></li>
-<li><a href="#200-dev-337">2.0.0-DEV-337</a></li>
+<li><a href="#200-dev-98-rpgmenu-merge">2.0.0-DEV-98 - RPGMenu Merge</a></li>
+<li><a href="#200-dev-238-package-structure-rework">2.0.0-DEV-238 - Package Structure Rework</a></li>
+<li><a href="#200-dev-337-event-scheduling-rework">2.0.0-DEV-337 - Event Scheduling Rework</a></li>
 </ul>
-<h3 id="200-dev-98">2.0.0-DEV-98<a class="headerlink" href="#200-dev-98" title="Permanent link">🔗</a></h3>
+<h3 id="200-dev-98-rpgmenu-merge">2.0.0-DEV-98 - RPGMenu Merge<a class="headerlink" href="#200-dev-98-rpgmenu-merge" title="Permanent link">🔗</a></h3>
 <p>All existing RPGMenu users must update their RPGMenu config file. Simply rename it from <code>rpgmenu.config.yml</code> to
 <code>menuConfig.yml</code>.</p>
-<h3 id="200-dev-238">2.0.0-DEV-238<a class="headerlink" href="#200-dev-238" title="Permanent link">🔗</a></h3>
+<h3 id="200-dev-238-package-structure-rework">2.0.0-DEV-238 - Package Structure Rework<a class="headerlink" href="#200-dev-238-package-structure-rework" title="Permanent link">🔗</a></h3>
 <ul>
-<li>Ensure your server is running on <strong>java 17</strong></li>
-<li>Move your current Quests to the folder <code>BetonQuest/QuestPackages/</code>, as quests are now loaded from there</li>
-<li>Rename <code>main.yml</code> to <code>package.yml</code></li>
-<li>Change the <code>events.yml</code>, <code>objectives.yml</code>, <code>conditions.yml</code>, <code>journal.yml</code> and <code>items.yml</code> to the following format
-  with an extra prefix matching their file name:
-  <div class="highlight"><pre><span></span><code><span class="nt">events</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">myEvent1</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span><span class="w"></span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">....</span><span class="w"></span>
-</code></pre></div></li>
-<li>Change the <code>conversations</code> and <code>menus</code> to the following format with an extra prefix matching there type and the file
-  name:
-  <div class="highlight"><pre><span></span><code><span class="nt">conversations</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">ConversationName</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">NPC_options</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">....</span><span class="w"></span>
-<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">....</span><span class="w"></span>
-</code></pre></div>
-  or alternatively:
-  <div class="highlight"><pre><span></span><code><span class="nt">conversations.ConversationName</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">NPC_options</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">....</span><span class="w"></span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">....</span><span class="w"></span>
-</code></pre></div></li>
+<li>Ensure your server is running on <strong>Java 17</strong></li>
+<li>Move your current Quests to the folder "<em>BetonQuest/QuestPackages</em>"`, as quests are now loaded from there</li>
+<li>Rename all "<em>main.yml</em>" files to "<em>package.yml</em>"</li>
 <li>Quest packages can now contain nested quest packages in sub folders. You can also have any file and folder structure
-  with any file and folder names you want. Only the <code>package.yml</code> is reserved as indicator for a quest
-  package. <a href="../Reference/#packages">DOCS</a></li>
+  with any file and folder names you want. Only the "<em>package.yml</em>" is reserved as indicator for a quest
+  package. Learn more in the <a href="../Reference/#packages">Reference</a>.</li>
+<li>
+<p>Therefore, the "<em>events.yml</em>`, "<em>objectives.yml</em>", "<em>conditions.yml</em>", "<em>journal.yml</em>" and "<em>items.yml</em>" files must
+    be updated to the following format:
+    Every type that was previously a separate file with a special name is now identified by a "parent-section". It's
+    the names of the types / the names the file previously had. Let's take a look at an example for events and conditions:</p>
+<div class="admonition info">
+<p class="admonition-title">Example</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Old Way</label><label for="__tabbed_1_2">New Way</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><div class="highlight"><span class="filename">events.yml</span><pre><span></span><code><span class="nt">myEvent</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;teleport</span><span class="nv"> </span><span class="s">1;2;3;world&quot;</span><span class="w"></span>
+<span class="nt">myOtherEvent</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;point</span><span class="nv"> </span><span class="s">level</span><span class="nv"> </span><span class="s">1&quot;</span><span class="w"></span>
+</code></pre></div>
+<div class="highlight"><span class="filename">conditions.yml</span><pre><span></span><code><span class="nt">myCondition</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;location</span><span class="nv"> </span><span class="s">300;200;300;world&quot;</span><span class="w"></span>
+</code></pre></div></p>
+</div>
+<div class="tabbed-block">
+<p><div class="highlight"><span class="filename">events.yml</span><pre><span></span><code><span class="nt">events</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">myEvent</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;teleport</span><span class="nv"> </span><span class="s">1;2;3;world&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="nt">myOtherEvent</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;point</span><span class="nv"> </span><span class="s">level</span><span class="nv"> </span><span class="s">1&quot;</span><span class="w"></span>
+</code></pre></div>
+<div class="highlight"><span class="filename">conditions.yml</span><pre><span></span><code><span class="nt">conditions</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">myCondition</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;location</span><span class="nv"> </span><span class="s">300;200;300;world&quot;</span><span class="w"></span>
+</code></pre></div>
+As described in the previous paragraph, the events and conditions must not be in the same file anymore.
+You could also do this or use any file structure:
+<div class="highlight"><span class="filename">anyFileName.yml</span><pre><span></span><code><span class="nt">events</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">myEvent</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;teleport</span><span class="nv"> </span><span class="s">1;2;3;world&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="nt">myOtherEvent</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;point</span><span class="nv"> </span><span class="s">level</span><span class="nv"> </span><span class="s">1&quot;</span><span class="w"></span>
+<span class="nt">conditions</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">myCondition</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;location</span><span class="nv"> </span><span class="s">300;200;300;world&quot;</span><span class="w"></span>
+</code></pre></div></p>
+</div>
+</div>
+</div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>You must do this change for all types, not just events and conditions! </p>
+</div>
+</li>
+<li>
+<p>Alongside the previous change, <strong>conversations</strong> and <strong>menus</strong> must also be updated to the following format:
+  Add an extra prefix matching their type and the file name:</p>
+<div class="admonition info">
+<p class="admonition-title">Example</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Old Syntax</label><label for="__tabbed_2_2">New Syntax</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">lisa.yml</span><pre><span></span><code><span class="nt">quester</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Lisa</span><span class="w"></span>
+<span class="nt">first</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">option1, option2</span><span class="w"></span>
+<span class="nt">NPC_options</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">option1</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="c1"># ...</span><span class="w"></span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">anyFileName.yml</span><pre><span></span><code><span class="nt">conversations</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">lisa</span><span class="p">:</span><span class="w"> </span><span class="c1">#(1)!</span><span class="w"></span>
+<span class="w">    </span><span class="nt">quester</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Lisa</span><span class="w"></span>
+<span class="w">    </span><span class="nt">first</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">option1, option2</span><span class="w"></span>
+<span class="w">    </span><span class="nt">NPC_options</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="nt">option1</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="c1"># ...</span><span class="w"></span>
+</code></pre></div>
+<ol>
+<li>This key is now the conversation name that you must refer to when linking NPCs to conversations. </li>
+</ol>
+<p>Or alternatively:
+<div class="highlight"><pre><span></span><code><span class="nt">conversations.lisa</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">quester</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Lisa</span><span class="w"></span>
+<span class="w">  </span><span class="nt">first</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">option1, option2</span><span class="w"></span>
+<span class="w">  </span><span class="nt">NPC_options</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">option1</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="c1"># ...</span><span class="w"></span>
+</code></pre></div></p>
+</div>
+</div>
+</div>
+</div>
+</li>
 </ul>
-<h3 id="200-dev-337">2.0.0-DEV-337<a class="headerlink" href="#200-dev-337" title="Permanent link">🔗</a></h3>
+<h3 id="200-dev-337-event-scheduling-rework">2.0.0-DEV-337 - Event Scheduling Rework<a class="headerlink" href="#200-dev-337-event-scheduling-rework" title="Permanent link">🔗</a></h3>
 <ul>
 <li>
-<p>All your static events need to be converted to the new schedules system.
-  The <a href="../Schedules/#daily-realtime-schedule-realtime-daily"><code>realtime-daily</code></a> schedule makes this easy:
-  <div class="highlight"><span class="filename">Old Syntax</span><pre><span></span><code><span class="nt">static</span><span class="p">:</span><span class="w"></span>
+<p>All your static events need to be converted to the new scheduling system.
+  The <a href="../Schedules/#daily-realtime-schedule-realtime-daily"><code>realtime-daily</code></a> schedule makes this easy:</p>
+<div class="admonition info">
+<p class="admonition-title">Example<p><div class="highlight"><span class="filename">Old Syntax</span><pre><span></span><code><span class="nt">static</span><span class="p">:</span><span class="w"></span>
 <span class="w">  </span><span class="s">&#39;09:00&#39;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">beton</span><span class="w"></span>
 <span class="w">  </span><span class="s">&#39;11:23&#39;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">some_command,command_announcement</span><span class="w"></span>
 </code></pre></div>
-  <div class="highlight"><span class="filename">New Syntax</span><pre><span></span><code><span class="nt">schedules</span><span class="p">:</span><span class="w"></span>
+<div class="highlight"><span class="filename">New Syntax</span><pre><span></span><code><span class="nt">schedules</span><span class="p">:</span><span class="w"></span>
 <span class="w">  </span><span class="nt">betonAt09</span><span class="p">:</span><span class="w"> </span><span class="c1">#(1)!</span><span class="w"></span>
 <span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">realtime-daily</span><span class="w"> </span><span class="c1">#(2)!</span><span class="w"></span>
 <span class="w">    </span><span class="nt">time</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;09:00&#39;</span><span class="w"> </span><span class="c1">#(3)!</span><span class="w"></span>
 <span class="w">    </span><span class="nt">events</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">beton</span><span class="w"> </span><span class="c1">#(4)!</span><span class="w"></span>
 <span class="w">  </span><span class="nt">cmdAt1123</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">simple</span><span class="w"></span>
+<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">realtime-daily</span><span class="w"></span>
 <span class="w">    </span><span class="nt">time</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;11:23&#39;</span><span class="w"></span>
 <span class="w">    </span><span class="nt">events</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">some_command,command_announcement</span><span class="w"></span>
 </code></pre></div></p>
@@ -2558,6 +2625,8 @@
 <p>The former value is now the events value.</p>
 </li>
 </ol>
+</p>
+</div>
 </li>
 </ul>
 
