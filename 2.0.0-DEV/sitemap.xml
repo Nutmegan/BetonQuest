@@ -81,6 +81,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://docs.betonquest.org/2.0.0-DEV/Documentation/Migration/</loc>
+         <lastmod>2022-07-20</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://docs.betonquest.org/2.0.0-DEV/Documentation/Notification-IO%27s-%26-Categories/</loc>
          <lastmod>2022-07-20</lastmod>
          <changefreq>daily</changefreq>
@@ -106,17 +111,12 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://docs.betonquest.org/2.0.0-DEV/Documentation/Variables-List/</loc>
-         <lastmod>2022-07-20</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://docs.betonquest.org/2.0.0-DEV/Documentation/Updating/</loc>
          <lastmod>2022-07-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://docs.betonquest.org/2.0.0-DEV/Documentation/Updating/Migration/</loc>
+         <loc>https://docs.betonquest.org/2.0.0-DEV/Documentation/Variables-List/</loc>
          <lastmod>2022-07-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -151,11 +151,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://docs.betonquest.org/2.0.0-DEV/Participate/Process/Code/</loc>
-         <lastmod>2022-07-20</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://docs.betonquest.org/2.0.0-DEV/Participate/Process/Code/Adding-a-new-Dependency/</loc>
          <lastmod>2022-07-20</lastmod>
          <changefreq>daily</changefreq>
@@ -166,12 +161,12 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://docs.betonquest.org/2.0.0-DEV/Participate/Process/Code/Writing-JUnit-Tests/</loc>
+         <loc>https://docs.betonquest.org/2.0.0-DEV/Participate/Process/Code/Workflow/</loc>
          <lastmod>2022-07-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://docs.betonquest.org/2.0.0-DEV/Participate/Process/Docs/</loc>
+         <loc>https://docs.betonquest.org/2.0.0-DEV/Participate/Process/Code/Writing-JUnit-Tests/</loc>
          <lastmod>2022-07-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -186,17 +181,17 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://docs.betonquest.org/2.0.0-DEV/Participate/Process/Docs/Workflow/</loc>
+         <lastmod>2022-07-20</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://docs.betonquest.org/2.0.0-DEV/Tutorials/Frequently-Asked-Questions/</loc>
          <lastmod>2022-07-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://docs.betonquest.org/2.0.0-DEV/Tutorials/Welcome/</loc>
-         <lastmod>2022-07-20</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://docs.betonquest.org/2.0.0-DEV/Tutorials/Getting-Started/Installing-BetonQuest/</loc>
+         <loc>https://docs.betonquest.org/2.0.0-DEV/Tutorials/Overview/</loc>
          <lastmod>2022-07-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -206,17 +201,32 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://docs.betonquest.org/2.0.0-DEV/Tutorials/Getting-Started/Setting-up-a-local-test-server/</loc>
+         <loc>https://docs.betonquest.org/2.0.0-DEV/Tutorials/Getting-Started/Basics/Conversations/</loc>
          <lastmod>2022-07-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://docs.betonquest.org/2.0.0-DEV/Tutorials/Getting-Started/Setting-up-the-editor/</loc>
+         <loc>https://docs.betonquest.org/2.0.0-DEV/Tutorials/Getting-Started/Basics/Events/</loc>
          <lastmod>2022-07-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://docs.betonquest.org/2.0.0-DEV/Tutorials/Getting-Started/YAML-for-questers/</loc>
+         <loc>https://docs.betonquest.org/2.0.0-DEV/Tutorials/Getting-Started/Basics/YAML-for-questers/</loc>
+         <lastmod>2022-07-20</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://docs.betonquest.org/2.0.0-DEV/Tutorials/Getting-Started/Setup-Guide/Installing-Dependencies/</loc>
+         <lastmod>2022-07-20</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://docs.betonquest.org/2.0.0-DEV/Tutorials/Getting-Started/Setup-Guide/Setting-up-a-test-server/</loc>
+         <lastmod>2022-07-20</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://docs.betonquest.org/2.0.0-DEV/Tutorials/Getting-Started/Setup-Guide/Setting-up-the-editor/</loc>
          <lastmod>2022-07-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
