@@ -6309,13 +6309,14 @@ argument to specify how many of these mobs need to be killed. It's also possible
 <code>minLevel</code> and <code>maxLevel</code> to further customize what mobs need to be killed.
 You can also add an optional <code>neutralDeathRadiusAllPlayers</code> argument to complete the objective for each nearby player
 within the defined radius when the mob is killed by any non-player source.
-You can add a <code>notify</code> keyword if you want to send a notification to players whenever the objective progresses.</p>
+You can add a <code>notify</code> keyword if you want to send a notification to players whenever the objective progresses.
+You can also add an optional <code>marked</code> argument to only count kills marked with the <code>mspawn</code> event.</p>
 <p>This objective has three properties: <code>amount</code>, <code>left</code> and <code>total</code>. <code>amount</code> is the amount of mythic mobs already killed,
 <code>left</code> is the amount of mythic mobs still needed to kill and <code>total</code> is the amount of mythic mobs initially required.</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
 <div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">mmobkill SkeletalKnight amount:2 events:reward</span><span class="w"></span>
-<span class="l l-Scalar l-Scalar-Plain">mmobkill SnekBoss amount:2 minlevel:4 maxlevel:6 events:reward</span><span class="w"></span>
+<span class="l l-Scalar l-Scalar-Plain">mmobkill SnekBoss amount:2 minlevel:4 maxlevel:6 events:reward marked:DungeonBoss3</span><span class="w"></span>
 </code></pre></div>
 </div>
 <h3 id="conditions_8">Conditions<a class="headerlink" href="#conditions_8" title="Permanent link">🔗</a></h3>
@@ -6328,10 +6329,15 @@ You can add a <code>notify</code> keyword if you want to send a notification to 
 </div>
 <h3 id="events_9">Events<a class="headerlink" href="#events_9" title="Permanent link">🔗</a></h3>
 <h4 id="spawnmob-mspawnmob">SpawnMob: <code>mspawnmob</code><a class="headerlink" href="#spawnmob-mspawnmob" title="Permanent link">🔗</a></h4>
-<p>Spawn specified amount of MythicMobs at given location. The first argument is a location defined like <code>100;200;300;world</code>. Second is MythicMobs internal name (the one defined in MythicMobs' configuration) followed by a colon and a level. Third one is amount and it's required!</p>
+<p>Spawn specified amount of MythicMobs at given location. The first argument is a location defined like <code>100;200;300;world</code>. Second is MythicMobs internal name (the one defined in MythicMobs' configuration) followed by a colon and a level. Third one is amount and it's required!
+You can also add the optional argument <code>target</code> which will make the mob target the player. </p>
+<p>There is also the <code>private</code> argument which will hide the mob from all other players until restart. This does not hide particles or block sound from the mob however.</p>
+<p>You can also mark the spawned mob with a keyword using <code>marked</code> argument.
+It won't show anywhere, and you can check for only marked mobs in mmobkill objective.</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
 <div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">mspawnmob 100;200;300;world SkeletalKnight:1 5</span><span class="w"></span>
+<span class="l l-Scalar l-Scalar-Plain">mspawnmob 100;200;300;world SkeletonKing:1 5 target private marked:DungeonBoss3</span><span class="w"></span>
 </code></pre></div>
 </div>
 <h2 id="placeholderapi"><a href="https://www.spigotmc.org/resources/6245/">PlaceholderAPI</a><a class="headerlink" href="#placeholderapi" title="Permanent link">🔗</a></h2>
@@ -6632,7 +6638,7 @@ If you have only a <code>.schem</code> schematic, simply append <code>.schem</co
                 
               
               
-                Thanks for your feedback! Help us improve this page by using our  <a href="https://github.com/BetonQuest/BetonQuest/issues/new/?template=docs-feedback.yml&title=[Docs Feedback]+Compatibility%20List+-+/Documentation/Compatibility/&version=2.0.0-DEV-356"> feedback form</a>.
+                Thanks for your feedback! Help us improve this page by using our  <a href="https://github.com/BetonQuest/BetonQuest/issues/new/?template=docs-feedback.yml&title=[Docs Feedback]+Compatibility%20List+-+/Documentation/Compatibility/&version=2.0.0-DEV-357"> feedback form</a>.
               
             </div>
           
