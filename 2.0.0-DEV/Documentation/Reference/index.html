@@ -1301,15 +1301,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#static-events" class="md-nav__link">
-    <span class="md-ellipsis">
-      Static events
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#journal" class="md-nav__link">
     <span class="md-ellipsis">
       Journal
@@ -2957,15 +2948,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#static-events" class="md-nav__link">
-    <span class="md-ellipsis">
-      Static events
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#journal" class="md-nav__link">
     <span class="md-ellipsis">
       Journal
@@ -3407,20 +3389,6 @@ These tags follow syntax <code>&lt;package&gt;.global-&lt;id&gt;</code>, where <
 <p><strong>Example:</strong>
 <div class="highlight"><pre><span></span><code><span class="nt">start_quest_mine</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;location</span><span class="nv"> </span><span class="s">100;200;300;world</span><span class="nv"> </span><span class="s">5</span><span class="nv"> </span><span class="s">events:start_quest_mine_folder</span><span class="nv"> </span><span class="s">global&#39;</span><span class="w"></span>
 </code></pre></div></p>
-<h2 id="static-events">Static events<a class="headerlink" href="#static-events" title="Permanent link">🔗</a></h2>
-<p>Static events are events that will fire at the specified time of the day. It is possible to address multiple events with
-a <code>,</code> separated list. They are not tied to a specific player, so not all event types can be used as static.
-(Which player should receive a tag or objective? From which one should the items be taken?)
-Also, static events cannot have conditions defined (<code>event-conditions:</code> argument), as the plugin cannot check any
-condition without the player. Events, that can be used as static are flagged with <code>static</code> keyword in this
-documentation. You can define your static events in <em>package.yml</em> file under <code>static</code> section, as such:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">static</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="s">&#39;09:00&#39;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">beton</span><span class="w"></span>
-<span class="w">  </span><span class="s">&#39;23:59&#39;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">lightning_strike</span><span class="w"></span>
-<span class="w">  </span><span class="s">&#39;11:23&#39;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">some_command,command_announcement</span><span class="w"></span>
-</code></pre></div>
-<p>The hour must be in <code>''</code> to avoid problems, it needs leading zero if less than 10.
-<code>beton</code>, <code>lightnint_strike</code> etc. are IDs of events.</p>
 <h2 id="journal">Journal<a class="headerlink" href="#journal" title="Permanent link">🔗</a></h2>
 <p>The journal is a book in which all your adventures are described. You can obtain it by typing <strong>/j</strong> command or <strong>/b</strong> and selecting it from backpack. You cannot put it into any chests, item frames and so on. If you ever feel the need to get rid of your journal, just drop it - it will return to your backpack. The journal is updated with the <code>journal</code> event, and the text inside is defined in the <em>journal</em> section. If you update these texts and reload the plugin, all players' journals will reflect changes. Colors in the journal can be altered in config.yml. The entries can use color codes, but the color will be lost between pages.</p>
 <p>The journal by default appears in the last slot of the hotbar. If you want to change that use <code>default_journal_slot</code> option in <em>config.yml</em>, experiment with different settings until you're ok with it.</p>
