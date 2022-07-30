@@ -6304,9 +6304,9 @@ The backpack will not work before 2.0's item rework since the current item syste
 <h3 id="objectives_3">Objectives<a class="headerlink" href="#objectives_3" title="Permanent link">🔗</a></h3>
 <h4 id="mobkill-mmobkill">MobKill: <code>mmobkill</code><a class="headerlink" href="#mobkill-mmobkill" title="Permanent link">🔗</a></h4>
 <p>You need to kill the specified amount of MythicMobs to complete this objective. The first argument must be
-the mob's internal name (the one defined in your MythicMobs configuration). You can optionally add the <code>amount:</code>
-argument to specify how many of these mobs need to be killed. It's also possible to add the optional arguments
-<code>minLevel</code> and <code>maxLevel</code> to further customize what mobs need to be killed.
+the mob's internal name (the one defined in your MythicMobs configuration). Multiple mob names must be comma seperated.
+You can optionally add the <code>amount:</code> argument to specify how many of these mobs need to be killed. It's also possible
+to add the optional arguments <code>minLevel</code> and <code>maxLevel</code> to further customize what mobs need to be killed.
 You can also add an optional <code>neutralDeathRadiusAllPlayers</code> argument to complete the objective for each nearby player
 within the defined radius when the mob is killed by any non-player source.
 You can add a <code>notify</code> keyword if you want to send a notification to players whenever the objective progresses.
@@ -6317,6 +6317,7 @@ The only supported variable for the marked argument is <code>%player%</code>.</p
 <div class="admonition example">
 <p class="admonition-title">Example</p>
 <div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">mmobkill SkeletalKnight amount:2 events:reward</span><span class="w"></span>
+<span class="l l-Scalar l-Scalar-Plain">mmobkill SnekBoss,SnailBoss,SunBoss amount:10 events:reward</span><span class="w"></span>
 <span class="l l-Scalar l-Scalar-Plain">mmobkill SnekBoss amount:2 minlevel:4 maxlevel:6 events:reward marked:DungeonBoss3</span><span class="w"></span>
 </code></pre></div>
 </div>
