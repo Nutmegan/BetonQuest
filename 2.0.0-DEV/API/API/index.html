@@ -196,7 +196,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#accessing-the-plugin" class="md-skip">
+        <a href="#adding-betonquest-as-a-dependency" class="md-skip">
           Skip to content
         </a>
       
@@ -1774,9 +1774,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#accessing-the-plugin" class="md-nav__link">
+  <a href="#adding-betonquest-as-a-dependency" class="md-nav__link">
     <span class="md-ellipsis">
-      Accessing the plugin
+      Adding BetonQuest as a dependency
     </span>
   </a>
   
@@ -2509,9 +2509,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#accessing-the-plugin" class="md-nav__link">
+  <a href="#adding-betonquest-as-a-dependency" class="md-nav__link">
     <span class="md-ellipsis">
-      Accessing the plugin
+      Adding BetonQuest as a dependency
     </span>
   </a>
   
@@ -2636,28 +2636,24 @@
 
   <h1>API</h1>
 
-<h2 id="accessing-the-plugin">Accessing the plugin<a class="headerlink" href="#accessing-the-plugin" title="Permanent link">🔗</a></h2>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>All existing API will break in BetonQuest 2.0 which is being worked on while you read this.
 If you plan on doing something with this API please keep in mind that you will need to change it again later.</p>
 </div>
-<p>Add this to your pom.xml.</p>
-<div class="highlight"><pre><span></span><code><span class="nt">&lt;repositories&gt;</span>
-    <span class="nt">&lt;repository&gt;</span>
-        <span class="nt">&lt;id&gt;</span>betonquest-repo<span class="nt">&lt;/id&gt;</span>
-        <span class="nt">&lt;url&gt;</span>https://betonquest.org/nexus/repository/betonquest/<span class="nt">&lt;/url&gt;</span>
-    <span class="nt">&lt;/repository&gt;</span>
-<span class="nt">&lt;/repositories&gt;</span>
-
-<span class="nt">&lt;dependencies&gt;</span>
-    <span class="nt">&lt;dependency&gt;</span>
-        <span class="nt">&lt;groupId&gt;</span>org.betonquest<span class="nt">&lt;/groupId&gt;</span>
-        <span class="nt">&lt;artifactId&gt;</span>betonquest<span class="nt">&lt;/artifactId&gt;</span>
-        <span class="nt">&lt;version&gt;</span>2.0.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
-        <span class="nt">&lt;scope&gt;</span>provided<span class="nt">&lt;/scope&gt;</span>
-    <span class="nt">&lt;/dependency&gt;</span>
-<span class="nt">&lt;/dependencies&gt;</span>
+<h2 id="adding-betonquest-as-a-dependency">Adding BetonQuest as a dependency<a class="headerlink" href="#adding-betonquest-as-a-dependency" title="Permanent link">🔗</a></h2>
+<p>You can add BetonQuest as a dependency using your build system. Here is the config for Maven:</p>
+<div class="highlight"><span class="filename">Add this to your repositories tag</span><pre><span></span><code><span class="nt">&lt;repository&gt;</span>
+    <span class="nt">&lt;id&gt;</span>betonquest-repo<span class="nt">&lt;/id&gt;</span>
+    <span class="nt">&lt;url&gt;</span>https://betonquest.org/nexus/repository/betonquest/<span class="nt">&lt;/url&gt;</span>
+<span class="nt">&lt;/repository&gt;</span>
+</code></pre></div>
+<div class="highlight"><span class="filename">Add this to your dependencies tag</span><pre><span></span><code><span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>org.betonquest<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>betonquest<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>2.0.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;scope&gt;</span>provided<span class="nt">&lt;/scope&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
 </code></pre></div>
 <h2 id="writing-events">Writing events<a class="headerlink" href="#writing-events" title="Permanent link">🔗</a></h2>
 <p>Writing events is the easiest. You need to create a class extending <code>QuestEvent</code> for each new event. The constructor must take one argument, an <code>Instruction</code> object. In the constructor you must extract all information from the instruction, for example skill names, locations etc. The description of the <code>Instruction</code> class is down below. Don't worry about checking event conditions, these are handled by the rest of BetonQuest's logic.</p>
@@ -2691,7 +2687,7 @@ If you plan on doing something with this API please keep in mind that you will n
 <p>IDE's typically autocomplete the wrong constructor. A correct constructor takes a single <code>Instruction</code> argument.</p>
 </div>
 <h2 id="reading-instruction-object">Reading <code>Instruction</code> object<a class="headerlink" href="#reading-instruction-object" title="Permanent link">🔗</a></h2>
-<p>The <code>Instruction</code> object parses the instruction string defined by the user and splits it into arguments. You can ask it for required arguments one by one with <code>next()</code> method or a parser method like <code>getQuestItem()</code>. Required arguments are the ones specified at the very beginning of an instruction string, for example <code>add someTag</code> in <code>tag</code> event. It will automaticly throw <code>InstructionParseException</code> for you if it encounters an error, for example when there were no more arguments in user's instruction or it can't parse the argument to the type you asked for.</p>
+<p>The <code>Instruction</code> object parses the instruction string defined by the user and splits it into arguments. You can ask it for required arguments one by one with <code>next()</code> method or a parser method like <code>getQuestItem()</code>. Required arguments are the ones specified at the very beginning of an instruction string, for example <code>add someTag</code> in <code>tag</code> event. It will automatically throw <code>InstructionParseException</code> for you if it encounters an error, for example when there were no more arguments in user's instruction or it can't parse the argument to the type you asked for.</p>
 <p>You can also ask for optional arguments: if the instruction string contains argument <code>arg:something</code> and you ask for optional <code>arg</code>, it will give you <code>something</code>. If there is no optional argument, it will return <code>null</code>. Don't worry about passing that <code>null</code> to parser methods like <code>getLocation(String)</code>, they won't throw an error, they'll simply return that <code>null</code>.</p>
 <p>Parser methods are there for your convenience. You could write a location parser for yourself, but there's no need for that, you can just use <code>getLocation()</code> or <code>getLocation(String)</code> method and receive <code>LocationData</code> object. The former method is simply <code>getLocation(next())</code>.</p>
 <p>If your instruction is more complicated and <code>Instruction</code> class doesn't provide necessary methods, you can still parse the instruction string manually. You can get it with <code>getInstruction()</code> method. Just remember to throw <code>InstructionParseException</code> when the instruction supplied by the user is incorrect. BetonQuest will catch them and display a message in the console.</p>
@@ -2704,13 +2700,13 @@ If you plan on doing something with this API please keep in mind that you will n
 <h2 id="starting-objectives">Starting objectives<a class="headerlink" href="#starting-objectives" title="Permanent link">🔗</a></h2>
 <p>The <code>newObjective(String playerID, String objectiveID)</code> method will launch the objective from start. You can however use <code>resumeObjective(String playerID, String objectiveID, String instruction)</code> to pass your own <code>ObjectiveData</code> instruction to the objective. It will not be saved to the database, because it is assumed that the objective has just been loaded from it and it exists there without any change. You should save it manually.</p>
 <h2 id="creating-additional-conversation-inputoutput-methods">Creating additional conversation input/output methods<a class="headerlink" href="#creating-additional-conversation-inputoutput-methods" title="Permanent link">🔗</a></h2>
-<p>In order to register an object as the conversation input/output it needs to implement <code>ConversationIO</code> interface. The constructor will receive three arguments: Conversation object, playerID String and NPC name String. It needs to parse the required data here and register all needed listeners. The <code>setResponse(String response)</code> method will receive NPC's text from the conversation. The <code>addOption(String option)</code> method will be called by the conversation for each reply option for this NPC text. The object must store all this data and when <code>display()</code> is called, it must use it to display the player the output. When it detects that the player chose an answer, it should pass it to the conversation using <code>Conversation.passPlayerAnswer(int number)</code> method. The integer is the number of the answer, starting at 1. <code>clear()</code> method will be called at the beginning of the new conversation cycle. It should clear all the previous options, so they do not overlap. <code>end()</code> method will be called when the conversation ends and it should unregister all listeners. You can also call that message when you detect that the player forced conversation ending (for example by moving away from the NPC). Remember to notify the conversation about that using <code>Conversation.end()</code>.</p>
+<p>In order to register an object as the conversation input/output it needs to implement <code>ConversationIO</code> interface. The constructor will receive three arguments: Conversation object, playerID String and NPC name String. It needs to parse the required data here and register all needed listeners. The <code>setResponse(String response)</code> method will receive NPC's text from the conversation. The <code>addOption(String option)</code> method will be called by the conversation for each reply option for this NPC text. The object must store all this data and when <code>display()</code> is called, it must use it to display the player the output. When it detects that the player chose an answer, it should pass it to the conversation using <code>Conversation.passPlayerAnswer(int number)</code> method. The integer is the number of the answer, starting at 1. <code>clear()</code> method will be called at the beginning of the new conversation cycle. It should clear all the previous options, so they do not overlap. <code>end()</code> method will be called when the conversation ends, and it should unregister all listeners. You can also call that message when you detect that the player forced conversation ending (for example by moving away from the NPC). Remember to notify the conversation about that using <code>Conversation.end()</code>.</p>
 <p>Registering the conversation inputs/outputs is done in the same way as objectives, events and conditions, through <code>BetonQuest.registerConversationIO(String name, Class&lt;? extends ConversationIO&gt;)</code> method.</p>
 <h2 id="listening-to-betonquest-bukkit-events">Listening to BetonQuest (Bukkit) events<a class="headerlink" href="#listening-to-betonquest-bukkit-events" title="Permanent link">🔗</a></h2>
-<p>BetonQuest calls Bukkit events on a few occasions: when a conversation is started, finished and when an option is selected. You can find these events in <code>org.betonquest.betonquest.api</code> package and use them in your plugins. If you need any additional events just open and issue on GitHub or send me a pull request.</p>
+<p>BetonQuest calls Bukkit events occasionally: when a conversation is started, finished and when an option is selected. You can find these events in <code>org.betonquest.betonquest.api</code> package and use them in your plugins. If you need any additional events just open and issue on GitHub or send me a pull request.</p>
 <h2 id="debugging">Debugging<a class="headerlink" href="#debugging" title="Permanent link">🔗</a></h2>
 <p>You can debug your code using <code>LogUtils</code> class by simply call <code>LogUtils.getlogger().log(..)</code> to log something.</p>
-<p>We use the following levels for this aspects:
+<p>We use the following levels for these aspects:
 - <code>SEVER</code> - Anything happen, that breaks the plugin, or a main function of the plugin
 - <code>WARNING</code> - The most things, where something not normal or unexpected happens, but the plugin still work correctly for the rest(all catch blocks, when not SEVER)
 - <code>INFO</code> - Anything you want to log, that also should appear in the normal console
@@ -2764,7 +2760,7 @@ If you plan on doing something with this API please keep in mind that you will n
                 
               
               
-                Thanks for your feedback! Help us improve this page by using our  <a href="https://github.com/BetonQuest/BetonQuest/issues/new/?template=docs-feedback.yml&title=[Docs Feedback]+API+-+/API/API/&version=2.0.0-DEV-375"> feedback form</a>.
+                Thanks for your feedback! Help us improve this page by using our  <a href="https://github.com/BetonQuest/BetonQuest/issues/new/?template=docs-feedback.yml&title=[Docs Feedback]+API+-+/API/API/&version=2.0.0-DEV-376"> feedback form</a>.
               
             </div>
           

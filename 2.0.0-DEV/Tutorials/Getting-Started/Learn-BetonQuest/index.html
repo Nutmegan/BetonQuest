@@ -2565,7 +2565,7 @@
 <div class="highlight"><pre><span></span><code>/q download BetonQuest/Quest-Tutorials main QuestPackages /default
 </code></pre></div></p>
 <p>Let's start by checking out the downloaded example quest. You can find it in the BetonQuest directory that has been
-generated in your plugins folder. The folder you are looking for is named "<em>QuestPackages/default/</em>".</p>
+generated in your "<em>plugins</em>" folder. The folder you are looking for is named "<em>QuestPackages/default/</em>".</p>
 <p>Open it up and find a file called <em>package.yml</em>. It contains a lot of options, but you only need to look at this section:
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">npcs</span><span class="p">:</span><span class="w"></span>
@@ -2621,7 +2621,7 @@ This is the maximum distance you can be away from the location to meet the condi
 Issue <strong>/q c {name} default.mega</strong> command (<code>c</code> is shortcut for <code>condition</code>). It should show you "Condition blah blah
 blah: <strong>true</strong>". We're focusing on that last word, <strong>true</strong>. This means that you're meeting the condition: you're standing within
 5 block radius of the location. Now move 2 blocks away and issue that command again. You should still be meeting the condition. 
-Walk 4 more blocks away and try now. It should show <strong>false</strong>. You are now outside of that 5 block radius. Get it? Great.</p>
+Walk 4 more blocks away and try now. It should show <strong>false</strong>. You are now outside that 5 block radius. Get it? Great.</p>
 <p>Now I'll show you the simplest use of those conditions. Open the <em>events.yml</em> file again, and at the end of <code>mega</code> 
 instruction add <code>conditions:mega</code> argument. By the way, rename your events to something that actually fits the type
 of the event, otherwise it will get confusing really fast. Example:</p>
@@ -2646,18 +2646,18 @@ of the event, otherwise it will get confusing really fast. Example:</p>
 </div>
 </div>
 </div>
-<p>Now <code>sayHello</code> event will run only if it meets <code>isAtSpawn</code> condition. Reload the plugin, walk outside of the 5 block
+<p>Now <code>sayHello</code> event will run only if it meets <code>isAtSpawn</code> condition. Reload the plugin, walk outside the 5 block
 radius and try to run <code>sayHello</code> event. Puff, nothing happens. It's because you're not meeting <code>isAtSpawn</code> condition.
 Walk into the radius again and try to run that event now. It should happily display the <code>Hello world!</code> notification.</p>
 <p>It's very nice that we can add such conditions, but the problem is: what if you wanted to display the notification only if the
 player is <em>outside</em> the radius? Don't worry, you don't have to specify <code>inverted_location</code> condition or anything like that.
 You can simply negate the condition. Negation makes the condition behave in the exact opposite way, in this case it
-<code>isAtSpawn</code> will be met only if the player is outside of the 5 block radius, and it won't be met if he's inside.
+<code>isAtSpawn</code> will be met only if the player is outside the 5 block radius, and it won't be met if he's inside.
 Open the <em>events.yml</em> and add an exclamation mark before the <code>isAtSpawn</code> condition, so it looks like this:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">  </span><span class="nt">sayHello</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;notify</span><span class="nv"> </span><span class="s">Hello</span><span class="nv"> </span><span class="s">world!</span><span class="nv"> </span><span class="s">conditions:!isAtSpawn&quot;</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
 <p>This means "display the <code>Hello world!</code> notification if the <code>isAtSpawn</code> condition is <em>not met</em>". Save the file, reload the plugin
-and run the event inside and outside of the radius to see how it works.</p>
+and run the event inside and outside the radius to see how it works.</p>
 <h2 id="basic-tags">Basic tags<a class="headerlink" href="#basic-tags" title="Permanent link">🔗</a></h2>
 <p>Now that you know how to use events and conditions I'll show you what tags are. Create new events:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -2672,7 +2672,7 @@ Right now focus on <code>default.beton</code>, the rest are used by the default 
 of the package in which the tag is, and <code>beton</code> is the name of the tag, as defined in <code>add_beton_tag</code> event.
 Now run <code>del_beton_tag</code> event. Guess what, <code>default.beton</code> disappeared from the list! And that's it, you know how to
 add and remove tags. Pretty useless.</p>
-<p>Nothing could be more wrong. Tags are one the most powerful things in BetonQuest. They just need to be used with <code>tag</code>
+<p>Nothing could be more wrong. Tags are one of the most powerful things in BetonQuest. They just need to be used with <code>tag</code>
 condition. Open <em>conditions.yml</em> and add this line:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">  </span><span class="nt">has_beton_tag</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;tag</span><span class="nv"> </span><span class="s">beton&quot;</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
@@ -2696,12 +2696,12 @@ Save it, reload the plugin and issue <strong>/q o {name} add default.kill_creepe
 tells the plugin to add an objective).</p>
 <p>Now you can check if you actually have this objective with <strong>/q o {name}</strong> command, it will show you all your active
 objectives. It should show <code>default.kill_creepers</code>. Alright, remove (yes, remove!) the <code>beton</code> tag from you and find
-some Creepers to kill. Once you killes 3 of them you will notice that nothing happened. It's because <code>has_beton_tag</code>
-condtion is not met, so the objective does not count your progress. Now add the tag again and kill another Creepers.
+some Creepers to kill. Once you killed 3 of them you will notice that nothing happened. It's because <code>has_beton_tag</code>
+condition is not met, so the objective does not count your progress. Now add the tag again and kill another Creepers.
 When the third is dead you should be teleported to the location defined in <code>tp</code> event.</p>
 <p>Congratulations, now you know how to use objectives. You should experiment with other types now, since objectives will
 be used very often in your quests. Once you're done check out the <em>Writing your first conversation</em> chapter to use your
-knowledge to write your fisrt conversation.</p>
+knowledge to write your first conversation.</p>
 <h2 id="writing-your-first-conversation">Writing your first conversation<a class="headerlink" href="#writing-your-first-conversation" title="Permanent link">🔗</a></h2>
 <p>Now that you have seen BetonQuest in action and understood events, conditions and objectives, it's time for writing your
 first conversation. There's a <em>conversations</em> directory inside the <code>default</code> package. It contains a single file,
@@ -2779,7 +2779,7 @@ When you save&amp;reload, the Miner should say <code>Nice weather.</code> when y
 <span class="w">      </span><span class="nt">bye</span><span class="p">:</span><span class="w"></span>
 <span class="w">        </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">I need to go, sorry.</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
-<p>Now, every time you talk to the Miner, he will say the same thing. It would be nice if the second time you talk to him
+<p>Now, every time you talk to the Miner, he will say the same thing. It would be nice if the second time you talk to him,
 he knew your name. We can do that with tags. Define a <code>meet_miner</code> event and <code>has_met_miner</code> condition. When you talk
 to the Miner for the first time, he will check if you have met him. If not, he will meet you (with that event) and next
 time you talk, the condition will be passed and he will use your name.</p>
@@ -2801,7 +2801,7 @@ condition with <code>''</code>, because strings cannot start with exclamation ma
 <span class="w">        </span><span class="nt">pointers</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">hello,bye</span><span class="w"> </span>
 </code></pre></div></td></tr></table></div>
 <p>This means: <code>first_greeting</code> should be used if the player <strong>does not</strong> pass <code>has_met_miner</code> condition (meaning he
-doesn't have a tag because he haven't talked to the NPC yet). When this option is used, it will fire <code>meet_miner</code> event
+doesn't have a tag because he hasn't talked to the NPC yet). When this option is used, it will fire <code>meet_miner</code> event
 and display <code>hello</code> and <code>bye</code> options. Alright, but what happens if the player met the Miner and now negated
 <code>has_met_miner</code> condition doesn't work? NPC will try to use next option defined in <code>first</code> setting. There is none yet,
 so let's add it.</p>
@@ -2865,7 +2865,7 @@ your Minecraft name.</p>
 </code></pre></div></td></tr></table></div>
 <p>Now you should experiment some more with this conversation, you can help yourself by looking at the
 <a href="https://github.com/BetonQuest/Quest-Tutorials/blob/main/QuestPackages/default/conversations/innkeeper.yml">innkeeper.yml</a> file.
-Try to understand how that conversation works step by step. As the excercise you should complete the Miner NPC, so he
+Try to understand how that conversation works step by step. As the exercise you should complete the Miner NPC, so he
 asks you to mine some iron ore, then smelt it in the furnace, next craft an armor with it and return to him wearing this armor.</p>
 <p>You might want to check out the <a href="../../../Documentation/Reference/">Reference</a> chapter to see how to handle items in 
 your quests and how to add entries to the journal. To find out more about events, conditions, objectives and variables,
@@ -2915,7 +2915,7 @@ take a look at the appropriate lists (after the <em>Reference</em> chapter).</p>
                 
               
               
-                Thanks for your feedback! Help us improve this page by using our  <a href="https://github.com/BetonQuest/BetonQuest/issues/new/?template=docs-feedback.yml&title=[Docs Feedback]+Old%20Tutorial+-+/Tutorials/Getting-Started/Learn-BetonQuest/&version=2.0.0-DEV-375"> feedback form</a>.
+                Thanks for your feedback! Help us improve this page by using our  <a href="https://github.com/BetonQuest/BetonQuest/issues/new/?template=docs-feedback.yml&title=[Docs Feedback]+Old%20Tutorial+-+/Tutorials/Getting-Started/Learn-BetonQuest/&version=2.0.0-DEV-376"> feedback form</a>.
               
             </div>
           
