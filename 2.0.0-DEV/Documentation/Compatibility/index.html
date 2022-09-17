@@ -6376,7 +6376,7 @@ The only supported variable for the marked argument is <code>%player%</code>.</p
 <td><em>name</em></td>
 <td>name:level</td>
 <td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M3.404 12.596a6.5 6.5 0 1 1 9.192-9.192 6.5 6.5 0 0 1-9.192 9.192zM2.344 2.343a8 8 0 1 0 11.313 11.314A8 8 0 0 0 2.343 2.343zM6.03 4.97a.75.75 0 0 0-1.06 1.06L6.94 8 4.97 9.97a.75.75 0 1 0 1.06 1.06L8 9.06l1.97 1.97a.75.75 0 1 0 1.06-1.06L9.06 8l1.97-1.97a.75.75 0 1 0-1.06-1.06L8 6.94 6.03 4.97z"/></svg></span></td>
-<td>MythicMobs mob name. Optionally, a level can be specifed after a colon.</td>
+<td>MythicMobs mob name. A level must be specifed after a colon.</td>
 </tr>
 <tr>
 <td><em>amount</em></td>
@@ -6404,8 +6404,8 @@ The only supported variable for the marked argument is <code>%player%</code>.</p
 </tr>
 </tbody>
 </table>
-<div class="highlight"><span class="filename">Example</span><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">events:</span><span class="p p-Indicator">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">spawnBoss</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mspawnmob 100;200;300;world MegaBoss target</span><span class="w"></span>
+<div class="highlight"><span class="filename">Example</span><pre><span></span><code><span class="nt">events</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">spawnBoss</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mspawnmob 100;200;300;world MegaBoss:1 target</span><span class="w"></span>
 <span class="w">  </span><span class="nt">spawnKnights</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mspawnmob 100;200;300;world SkeletalKnight:3 5</span><span class="w"></span>
 <span class="w">  </span><span class="nt">spawnPrivateDevil</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mspawnmob 100;200;300;world Mephisto:1 5 target private marked:DungeonBoss3</span><span class="w"></span>
 </code></pre></div>
