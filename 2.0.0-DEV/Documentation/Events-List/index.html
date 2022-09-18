@@ -1628,6 +1628,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#move-the-player-velocity" class="md-nav__link">
+    <span class="md-ellipsis">
+       Move the player: velocity
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3254,6 +3263,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#move-the-player-velocity" class="md-nav__link">
+    <span class="md-ellipsis">
+       Move the player: velocity
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3891,6 +3909,51 @@ storing variables. This event will do nothing if the player does not already hav
 <span class="w">  </span><span class="nt">burn</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;burn</span><span class="nv"> </span><span class="s">duration:4&quot;</span><span class="w"></span>
 <span class="w">  </span><span class="nt">punishing_fire</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;burn</span><span class="nv"> </span><span class="s">duration:%point.punishment.amount%&quot;</span><span class="w"></span>
 </code></pre></div>
+<h2 id="move-the-player-velocity"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M32 192h320c52.94 0 96-43.06 96-96S404.94 0 352 0h-32c-17.69 0-32 14.31-32 32s14.31 32 32 32h32c17.66 0 32 14.34 32 32s-14.34 32-32 32H32c-17.69 0-32 14.3-32 32s14.31 32 32 32zm128 128H32c-17.69 0-32 14.31-32 32s14.31 32 32 32h128c17.66 0 32 14.34 32 32s-14.34 32-32 32h-32c-17.69 0-32 14.31-32 32s14.31 32 32 32h32c52.94 0 96-43.06 96-96s-43.1-96-96-96zm256-96H32c-17.69 0-32 14.3-32 32s14.31 32 32 32h384c17.66 0 32 14.34 32 32s-14.34 32-32 32h-32c-17.69 0-32 14.31-32 32s14.31 32 32 32h32c52.94 0 96-43.06 96-96s-43.1-96-96-96z"/></svg></span> Move the player: <code>velocity</code><a class="headerlink" href="#move-the-player-velocity" title="Permanent link">🔗</a></h2>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Syntax</th>
+<th>Default Value</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>vector</em></td>
+<td><code>vector:(x;y;z)</code></td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M3.404 12.596a6.5 6.5 0 1 1 9.192-9.192 6.5 6.5 0 0 1-9.192 9.192zM2.344 2.343a8 8 0 1 0 11.313 11.314A8 8 0 0 0 2.343 2.343zM6.03 4.97a.75.75 0 0 0-1.06 1.06L6.94 8 4.97 9.97a.75.75 0 1 0 1.06 1.06L8 9.06l1.97 1.97a.75.75 0 1 0 1.06-1.06L9.06 8l1.97-1.97a.75.75 0 1 0-1.06-1.06L8 6.94 6.03 4.97z"/></svg></span></td>
+<td>The values of the vector, which are decimal numbers, can be interpreted as absolute numbers like the coordinate or as relative directions. For more understanding the relative direction is similar to <code>^ ^ ^</code> in minecraft or in other words <code>(sideways;upwards;forwards)</code>. Can be a variable.</td>
+</tr>
+<tr>
+<td><em>direction</em></td>
+<td><code>direction:directionType</code></td>
+<td><code>absolute</code></td>
+<td>There are 3 types how the vector can get applied to the player:<br> <code>absolute</code> won't change the vector at all.<br> <code>relative</code> will redirect the vector to the view of the player.<br> <code>relative_y</code> is a mix between absolute and relative. It will still direct to the view but only horizontally, so y will be absolute.</td>
+</tr>
+<tr>
+<td><em>modification</em></td>
+<td><code>modification:modificationType</code></td>
+<td><code>set</code></td>
+<td>Possible modifications are <code>set</code> and <code>add</code>. The modification type determines how the vector should be merged with the player's velocity. The player's velocity is the external force applied on the player.</td>
+</tr>
+</tbody>
+</table>
+<details class="info">
+<summary>Visual Explanation</summary>
+<p>In contrast to their global counterparts, relative x,y,z axes do not change their orientation relative to the player.
+Example: The positive x-axis will always point left from the perspective of the player.
+<div style="text-align: center">
+<img alt="relativeAxis image" src="../../_media/content/Documentation/Notifications/relativeAxis.png" />
+</div>  </p>
+</details>
+<div class="highlight"><span class="filename">Example</span><pre><span></span><code><span class="nt">events</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">jumppad</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;velocity</span><span class="nv"> </span><span class="s">vector:(2;0.8;4)&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="nt">dash</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;velocity</span><span class="nv"> </span><span class="s">vector:(0;0.1;1.3)</span><span class="nv"> </span><span class="s">direction:relative_y&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="nt">variable_dash</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;velocity</span><span class="nv"> </span><span class="s">vector:%objective.customVariable.dashLength%</span><span class="nv"> </span><span class="s">direction:relative_y&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="nt">fly</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;velocity</span><span class="nv"> </span><span class="s">vector:(0;0.1;2)</span><span class="nv"> </span><span class="s">direction:relative</span><span class="nv"> </span><span class="s">modification:add&quot;</span><span class="w"></span>
+</code></pre></div>
 
   
   
@@ -3936,7 +3999,7 @@ storing variables. This event will do nothing if the player does not already hav
                 
               
               
-                Thanks for your feedback! Help us improve this page by using our  <a href="https://github.com/BetonQuest/BetonQuest/issues/new/?template=docs-feedback.yml&title=[Docs Feedback]+Events%20List+-+/Documentation/Events-List/&version=2.0.0-DEV-387"> feedback form</a>.
+                Thanks for your feedback! Help us improve this page by using our  <a href="https://github.com/BetonQuest/BetonQuest/issues/new/?template=docs-feedback.yml&title=[Docs Feedback]+Events%20List+-+/Documentation/Events-List/&version=2.0.0-DEV-388"> feedback form</a>.
               
             </div>
           
