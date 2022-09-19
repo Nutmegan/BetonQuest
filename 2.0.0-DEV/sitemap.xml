@@ -216,6 +216,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://docs.betonquest.org/2.0.0-DEV/Tutorials/Getting-Started/Basics/Objectives/</loc>
+         <lastmod>2022-09-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://docs.betonquest.org/2.0.0-DEV/Tutorials/Getting-Started/Basics/YAML-for-questers/</loc>
          <lastmod>2022-09-19</lastmod>
          <changefreq>daily</changefreq>
