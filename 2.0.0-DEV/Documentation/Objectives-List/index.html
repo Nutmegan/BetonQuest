@@ -1228,9 +1228,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#block-block" class="md-nav__link">
+  <a href="#break-or-place-blocks-block" class="md-nav__link">
     <span class="md-ellipsis">
-      Block: block
+       Break or Place Blocks: block
     </span>
   </a>
   
@@ -2722,9 +2722,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#block-block" class="md-nav__link">
+  <a href="#break-or-place-blocks-block" class="md-nav__link">
     <span class="md-ellipsis">
-      Block: block
+       Break or Place Blocks: block
     </span>
   </a>
   
@@ -3019,20 +3019,79 @@ give accurate results. Experiment with this objective a bit to make sure you've 
 <div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">arrow 100.5;200.5;300.5;world 1.1 events:reward conditions:correct_player_position</span><span class="w"></span>
 </code></pre></div>
 </div>
-<h2 id="block-block">Block: <code>block</code><a class="headerlink" href="#block-block" title="Permanent link">🔗</a></h2>
-<p>To complete this objective the player must break or place the specified amount of blocks. The first argument is a
-<a href="../Reference/#block-selectors">Block Selector</a>. Next is amount. It can be more than 0 for placing and
-less than 0 for destroying. You can also use the <code>notify</code> keyword to display messages to the player each time he updates
-amount of blocks, optionally with the notification interval after colon.</p>
-<p>This objective has three properties: <code>amount</code>, <code>left</code> and <code>total</code>. <code>amount</code> is the amount of blocks already done,
-<code>left</code> is the amount of blocks still needed to complete the objective and <code>total</code> is the amount of blocks initially
-needed.
-Note that it follows the same rules as the amount argument, meaning that blocks to break are a negative number!</p>
-<div class="admonition example">
-<p class="admonition-title">Example</p>
-<div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">block LOG -16 events:reward notify:5</span><span class="w"></span>
+<h2 id="break-or-place-blocks-block"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.79 10.62 3.5 21.9l-1.4-1.4L13.38 9.21l1.41 1.41m4.48-2.89.59-.59-.79-.79.64-.64-1.42-1.42-.64.64-.79-.79-.59.59c-1.74-1.42-3.7-2.56-5.8-3.36l-.83 1.79c1.75.92 3.36 2.03 4.86 3.34L14 7l3 3 .5-.5c1.31 1.5 2.42 3.11 3.34 4.86l1.79-.83c-.8-2.1-1.94-4.06-3.36-5.8Z"/></svg></span> Break or Place Blocks: <code>block</code><a class="headerlink" href="#break-or-place-blocks-block" title="Permanent link">🔗</a></h2>
+<p>To complete this objective the player must break or place the specified amount of blocks.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Syntax</th>
+<th>Default Value</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>Block Type</em></td>
+<td><a href="../Reference/#block-selectors">Block Selector</a></td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M3.404 12.596a6.5 6.5 0 1 1 9.192-9.192 6.5 6.5 0 0 1-9.192 9.192zM2.344 2.343a8 8 0 1 0 11.313 11.314A8 8 0 0 0 2.343 2.343zM6.03 4.97a.75.75 0 0 0-1.06 1.06L6.94 8 4.97 9.97a.75.75 0 1 0 1.06 1.06L8 9.06l1.97 1.97a.75.75 0 1 0 1.06-1.06L9.06 8l1.97-1.97a.75.75 0 1 0-1.06-1.06L8 6.94 6.03 4.97z"/></svg></span></td>
+<td>The block which must be broken.</td>
+</tr>
+<tr>
+<td><em>Amount</em></td>
+<td>Number</td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M3.404 12.596a6.5 6.5 0 1 1 9.192-9.192 6.5 6.5 0 0 1-9.192 9.192zM2.344 2.343a8 8 0 1 0 11.313 11.314A8 8 0 0 0 2.343 2.343zM6.03 4.97a.75.75 0 0 0-1.06 1.06L6.94 8 4.97 9.97a.75.75 0 1 0 1.06 1.06L8 9.06l1.97 1.97a.75.75 0 1 0 1.06-1.06L9.06 8l1.97-1.97a.75.75 0 1 0-1.06-1.06L8 6.94 6.03 4.97z"/></svg></span></td>
+<td>The amount of blocks to place / destroy. More than 0 for placing and less than 0 for breaking blocks.</td>
+</tr>
+<tr>
+<td><em>Safety Check</em></td>
+<td>Keyword (<code>noSafety</code>)</td>
+<td>Safety Check Enabled</td>
+<td>The Safety Check prevents faking the objective. The progress will be reduced when the player does to opposite of what they are supposed to do. Example: Player must break 10 blocks. They place 10 of their stored blocks. Now the total amount of blocks to break is 20.</td>
+</tr>
+<tr>
+<td><em>Notifications</em></td>
+<td>Keyword (<code>notify</code>)</td>
+<td>Disabled</td>
+<td>Displays messages to the player each time they progress the objective. Optionally with the notification interval after colon.</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><span class="nt">objectives</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">breakLogs</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;block</span><span class="nv"> </span><span class="s">LOG</span><span class="nv"> </span><span class="s">-16</span><span class="nv"> </span><span class="s">events:reward</span><span class="nv"> </span><span class="s">notify&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="nt">placeBricks</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;block</span><span class="nv"> </span><span class="s">BRICKS</span><span class="nv"> </span><span class="s">64</span><span class="nv"> </span><span class="s">events:epicReward</span><span class="nv"> </span><span class="s">notify:5&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="nt">breakIron</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;block</span><span class="nv"> </span><span class="s">IRON_ORE</span><span class="nv"> </span><span class="s">-16</span><span class="nv"> </span><span class="s">noSafety</span><span class="nv"> </span><span class="s">notify</span><span class="nv"> </span><span class="s">events:dailyReward&quot;</span><span class="w"></span>
 </code></pre></div>
-</div>
+<h5> Variable Properties </h5>
+
+<p>Note that these follow the same rules as the amount argument, meaning that blocks to break are a negative number!
+You can use this variable to always get positive values: <code>%math.calc:|objective.breakLogs.left|%</code></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Example Output</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>amount</em></td>
+<td>6</td>
+<td>Shows the amount of blocks already broken / placed.</td>
+</tr>
+<tr>
+<td><em>left</em></td>
+<td>4</td>
+<td>Shows the amount of blocks that still need to be broken / placed for the objective to be completed.</td>
+</tr>
+<tr>
+<td><em>total</em></td>
+<td>10</td>
+<td>Shows the initial amount of blocks that needed to be broken / placed.</td>
+</tr>
+</tbody>
+</table>
 <h2 id="breed-animals-breed">Breed animals: <code>breed</code><a class="headerlink" href="#breed-animals-breed" title="Permanent link">🔗</a></h2>
 <p>This objective is completed by breeding animals of specified type. The first argument is the
 <a href="https://hub.spigotmc.org/javadocs/spigot/org/bukkit/entity/EntityType.html">animal type</a> and the second argument is the
@@ -3650,7 +3709,7 @@ by what players type in chat which is only useful when you're also using the <co
                 
               
               
-                Thanks for your feedback! Help us improve this page by using our  <a href="https://github.com/BetonQuest/BetonQuest/issues/new/?template=docs-feedback.yml&title=[Docs Feedback]+Objectives%20List+-+/Documentation/Objectives-List/&version=2.0.0-DEV-389"> feedback form</a>.
+                Thanks for your feedback! Help us improve this page by using our  <a href="https://github.com/BetonQuest/BetonQuest/issues/new/?template=docs-feedback.yml&title=[Docs Feedback]+Objectives%20List+-+/Documentation/Objectives-List/&version=2.0.0-DEV-390"> feedback form</a>.
               
             </div>
           
