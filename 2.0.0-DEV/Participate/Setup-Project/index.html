@@ -2727,7 +2727,7 @@ And under <code>Packages to Use Import with '*'</code> configure the following:<
 </tbody>
 </table>
 <p>Now we enable some automatic checks, when you commit things, that ensures everything is fine.
-In the <code>Commit</code> tab click on the three settings dots, near the <code>Amend</code> checkbox and then check the following entries under <code>Before Commit</code>:</p>
+In the <code>Commit</code> tab click on the <img alt="⚙" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/2699.svg" title=":gear:" /> icon near the <code>Amend</code> checkbox. Check the following entries under <code>Before Commit</code>:</p>
 <ul>
 <li>Reformat Code</li>
 <li>Rearrange Code</li>
@@ -2744,7 +2744,7 @@ Select "Add as Maven Project". </p>
 You can do this from the command line or use IntelliJ's <code>Maven</code> tab (double-click on <code>BetonQuest/Lifecycle/verify</code>).
 You can then find a <code>BetonQuest.jar</code> in the newly created folder <code>/target/artifacts</code>.</p>
 <h3 id="build-speed-up">Build speed up<a class="headerlink" href="#build-speed-up" title="Permanent link">🔗</a></h3>
-<p>As BetonQuest has a lot of dependencies, the build can take a long lime, especially for the first build.
+<p>As BetonQuest has a lot of dependencies, the build can take a long time, especially for the first build.
 You can speed this up with the following configuration, that downloads all dependencies from our own Repository Manager
 instead of searching through all repositories that are defined in the project.</p>
 <p>If you do not already have the file, create a new file in this location: <code>&lt;HOME DIRECTORY&gt;\.m2\settings.xml</code>.
@@ -2788,8 +2788,8 @@ Now after starting IntelliJ the <code>BetonQuest Resolve Dependencies</code> tas
 <h2 id="building-the-documentation">Building the Documentation<a class="headerlink" href="#building-the-documentation" title="Permanent link">🔗</a></h2>
 <p>Make sure <a href="https://www.python.org/downloads/">Python3</a> is installed on your local system
 and added to the PATH environment variable. The Python installer allows you to do so with a checkbox called something like
-"Add Python to environment variables".
-You also need to install <a href="https://www.gtk.org/">GTK</a>, the easiest way is to use this 
+"Add Python to environment variables".</p>
+<p>You also need to install <a href="https://www.gtk.org/">GTK</a>, the easiest way is to use this 
 <a href="https://github.com/tschoonj/GTK-for-Windows-Runtime-Environment-Installer/">GTK installer</a> if you are on Windows. </p>
 <p>Install all other dependencies by entering <code>pip install -r config/docs-requirements.txt</code> in the terminal on the project's root directory.</p>
 <details>
