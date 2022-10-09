@@ -3618,16 +3618,48 @@ Amount cannot be set here, though it may be checked with the <code>item</code> c
 </code></pre></div>
 </div>
 <h2 id="variable-variable">Variable: <code>variable</code><a class="headerlink" href="#variable-variable" title="Permanent link">🔗</a></h2>
-<p>This condition checks if a variable value matches given <a href="https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html">pattern</a>.
-The first argument is a variable (with <code>%</code> characters). Second one is the pattern (for example, if you want to check if it's "word",
-the patter would simply be <code>word</code>, but if you want to check if it's a number (positive or negative) you would use <code>-?\d+</code> pattern - <code>-?</code>
-means a dash or no dash, <code>\d</code> means any digit and <code>+</code> allows that digit to be repeated one or more times).
-The <code>forceSync</code> argument forces the variable to be resolved on the main thread. This may be required by some third party
-variables. </p>
+<p>This condition checks if a variable value matches given <a href="../Reference/#regex-regular-expressions">regular expression</a>.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Syntax</th>
+<th>Default Value</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>Variable</em></td>
+<td>Any variable</td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M3.404 12.596a6.5 6.5 0 1 1 9.192-9.192 6.5 6.5 0 0 1-9.192 9.192zM2.344 2.343a8 8 0 1 0 11.313 11.314A8 8 0 0 0 2.343 2.343zM6.03 4.97a.75.75 0 0 0-1.06 1.06L6.94 8 4.97 9.97a.75.75 0 1 0 1.06 1.06L8 9.06l1.97 1.97a.75.75 0 1 0 1.06-1.06L9.06 8l1.97-1.97a.75.75 0 1 0-1.06-1.06L8 6.94 6.03 4.97z"/></svg></span></td>
+<td>The variable (surrounded by <code>%</code> characters).</td>
+</tr>
+<tr>
+<td><em>Regex</em></td>
+<td>A regex pattern</td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M3.404 12.596a6.5 6.5 0 1 1 9.192-9.192 6.5 6.5 0 0 1-9.192 9.192zM2.344 2.343a8 8 0 1 0 11.313 11.314A8 8 0 0 0 2.343 2.343zM6.03 4.97a.75.75 0 0 0-1.06 1.06L6.94 8 4.97 9.97a.75.75 0 1 0 1.06 1.06L8 9.06l1.97 1.97a.75.75 0 1 0 1.06-1.06L9.06 8l1.97-1.97a.75.75 0 1 0-1.06-1.06L8 6.94 6.03 4.97z"/></svg></span></td>
+<td>The <a href="../Reference/#regex-regular-expressions">regex</a> that the variables value must match. The regex can also be stored in a variable.</td>
+</tr>
+<tr>
+<td><em>forceSync</em></td>
+<td>Keyword</td>
+<td>False</td>
+<td>Forces the variables to be resolved on the main thread. This may be required by some third party variables.</td>
+</tr>
+</tbody>
+</table>
 <div class="highlight"><pre><span></span><code><span class="nt">variables</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">anyNumber</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;variable</span><span class="nv"> </span><span class="s">%objective.var.price%</span><span class="nv"> </span><span class="s">-?</span><span class="err">\</span><span class="s">d+&quot;</span><span class="w"></span>
-<span class="w">  </span><span class="nt">denizenVariable</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;variable</span><span class="nv"> </span><span class="s">ph.denizen_&lt;server.match_player[SomeName].has_flag[flag_name]&gt;</span><span class="nv"> </span><span class="s">forceSync&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="nt">anyNumber</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;variable</span><span class="nv"> </span><span class="s">%objective.var.price%</span><span class="nv"> </span><span class="s">-?</span><span class="err">\</span><span class="s">d+&quot;</span><span class="w"> </span><span class="c1">#(1)!</span><span class="w"></span>
+<span class="w">  </span><span class="nt">isPlayer</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;variable</span><span class="nv"> </span><span class="s">%ph.parties_members_1%</span><span class="nv"> </span><span class="s">%player%&quot;</span><span class="w"> </span><span class="c1">#(2)!</span><span class="w"></span>
+<span class="w">  </span><span class="nt">denizenVariable</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;variable</span><span class="nv"> </span><span class="s">ph.denizen_&lt;server.match_player[SomeName].has_flag[flag_name]&gt;</span><span class="nv"> </span><span class="s">true</span><span class="nv"> </span><span class="s">forceSync&quot;</span><span class="w"> </span><span class="c1">#(3)!</span><span class="w"></span>
 </code></pre></div>
+<ol>
+<li>Returns true if the variable <code>%objective.var.price%</code> contains any number.</li>
+<li>Returns true if the <code>parties_members_1</code> variable contains the player's name.</li>
+<li>Returns true if the <code>denizen_&lt;server.match_player[SomeName].has_flag[flag_name]&gt;</code> Denizen variable contains <code>true</code>
+   . This variable is resolved on the main thread.</li>
+</ol>
 <h2 id="weather-weather">Weather: <code>weather</code><a class="headerlink" href="#weather-weather" title="Permanent link">🔗</a></h2>
 <p>There must be a specific weather for this condition to return true. There are three possible options: sun, rain and storm. Note that <code>/toggledownfall</code> does not change the weather, it just does what the name suggests: toggles downfall. The rain toggled off will still be considered as rain! Use <code>/weather clear</code> instead.</p>
 <div class="admonition example">
@@ -3687,7 +3719,7 @@ variables. </p>
                 
               
               
-                Thanks for your feedback! Help us improve this page by using our  <a href="https://github.com/BetonQuest/BetonQuest/issues/new/?template=docs-feedback.yml&title=[Docs Feedback]+Conditions%20List+-+/Documentation/Conditions-List/&version=2.0.0-DEV-405"> feedback form</a>.
+                Thanks for your feedback! Help us improve this page by using our  <a href="https://github.com/BetonQuest/BetonQuest/issues/new/?template=docs-feedback.yml&title=[Docs Feedback]+Conditions%20List+-+/Documentation/Conditions-List/&version=2.0.0-DEV-406"> feedback form</a>.
               
             </div>
           

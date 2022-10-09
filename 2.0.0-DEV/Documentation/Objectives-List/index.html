@@ -3413,12 +3413,7 @@ The password consists of a prefix followed by the actual secret word:
 <ol>
 <li>
 <p>The first argument is the password, use underscore characters (<code>_</code>) instead of spaces.
-   The password is a <a href="https://medium.com/factory-mind/regex-tutorial-a-simple-cheatsheet-by-examples-649dc1c3f285">regular expression</a>.
-   They are a little complicated but worth the effort if you want more control over what exactly matches. 
-   Websites like <a href="https://regex101.com/">regex101.com</a> help with that complexity though.
-   The official <a href="https://docs.oracle.com/en/java/javase/14/docs/api/java.base/java/util/regex/Pattern.html#sum">documentation</a> for regular expressions
-   in Java might also help you.
-   If you don't want to get into them just write down the password but keep in mind that the players answer needs to be an exact match! </p>
+   The password is a <a href="../Reference/#regex-regular-expressions">regular expression</a>. </p>
 </li>
 <li>
 <p>The prefix can be changed: The default (when no prefix is set) is the translated prefix from the <em>messages.yml</em> config in the user's language.           <br />
@@ -3439,11 +3434,9 @@ The password consists of a prefix followed by the actual secret word:
    With disabled prefix every command or chat message will trigger these events!</p>
 </li>
 </ol>
-<div class="admonition example">
-<p class="admonition-title">Example</p>
-<div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">password beton ignoreCase prefix:secret fail:failEvent1,failEvent2 events:message,reward</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="nt">objectives</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">theBetonPassword</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;password</span><span class="nv"> </span><span class="s">beton</span><span class="nv"> </span><span class="s">ignoreCase</span><span class="nv"> </span><span class="s">prefix:secret</span><span class="nv"> </span><span class="s">fail:failEvent1,failEvent2</span><span class="nv"> </span><span class="s">events:message,reward&quot;</span><span class="w"></span>
 </code></pre></div>
-</div>
 <h2 id="pickup-item-pickup">Pickup item: <code>pickup</code><a class="headerlink" href="#pickup-item-pickup" title="Permanent link">🔗</a></h2>
 <p>To complete this objective you need to pickup the specified amount of items. 
 The first argument must be the internal name of an item defined in the <code>items</code> section. This can also be a comma-separated list of multiple items.
@@ -3735,7 +3728,7 @@ by what players type in chat which is only useful when you're also using the <co
                 
               
               
-                Thanks for your feedback! Help us improve this page by using our  <a href="https://github.com/BetonQuest/BetonQuest/issues/new/?template=docs-feedback.yml&title=[Docs Feedback]+Objectives%20List+-+/Documentation/Objectives-List/&version=2.0.0-DEV-405"> feedback form</a>.
+                Thanks for your feedback! Help us improve this page by using our  <a href="https://github.com/BetonQuest/BetonQuest/issues/new/?template=docs-feedback.yml&title=[Docs Feedback]+Objectives%20List+-+/Documentation/Objectives-List/&version=2.0.0-DEV-406"> feedback form</a>.
               
             </div>
           

@@ -1501,6 +1501,39 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#regex-regular-expressions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Regex (Regular Expressions)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Regex (Regular Expressions)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#common-use-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Use Cases
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#more-complex-use-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      More complex use cases
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3171,6 +3204,39 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#regex-regular-expressions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Regex (Regular Expressions)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Regex (Regular Expressions)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#common-use-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Use Cases
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#more-complex-use-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      More complex use cases
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3650,12 +3716,12 @@ The translation of the line can be found in <em>messages.yml</em> if a different
 <ul>
 <li>
 <p><code>namespace</code> - (optional) The material namespace. If left out then it will be assumed to be 'minecraft'.
-   Can be a <a href="https://medium.com/factory-mind/regex-tutorial-a-simple-cheatsheet-by-examples-649dc1c3f285">regex</a>.</p>
+   Can be a <a href="#regex-regular-expressions">regex</a>.</p>
 </li>
 <li>
 <p><code>material</code> - The material the block is made of. All materials can be found in
   <a href="https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Material.html">Spigots Javadocs</a>. 
-  It can be a <a href="https://medium.com/factory-mind/regex-tutorial-a-simple-cheatsheet-by-examples-649dc1c3f285">regex</a>.
+  It can be a <a href="#regex-regular-expressions">regex</a>.
   If the regex ends with square brackets you have to add another pair of empty square brackets even if you don't want to 
   use the state argument (<code>[regex][]</code>).<br />
   Instead of using a regex to match multiple materials you can also define a <a href="https://minecraft.gamepedia.com/Tag">tag</a>.
@@ -3666,7 +3732,7 @@ The translation of the line can be found in <em>messages.yml</em> if a different
 <p><code>state</code> - (optional) The block states can be provided in a comma separated <code>key=value</code> list surrounded by square brackets.
    You can look up states in the Minecraft <a href="https://minecraft.gamepedia.com/Block_states">wiki</a>.
    Any states left out will be ignored when matching.
-   <em>Values</em> can be a <a href="https://medium.com/factory-mind/regex-tutorial-a-simple-cheatsheet-by-examples-649dc1c3f285">regex</a>.</p>
+   <em>Values</em> can be a <a href="#regex-regular-expressions">regex</a>.</p>
 </li>
 </ul>
 <p>Examples:</p>
@@ -3733,6 +3799,60 @@ You can configure the interval which checks the conditions in the <a href="../Co
 <span class="w">    </span><span class="nt">source_player</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">in_Lobby</span><span class="w"></span>
 <span class="w">    </span><span class="c1">#The target_player argument is left out to match all players.</span><span class="w"></span>
 </code></pre></div>
+<h2 id="regex-regular-expressions">Regex (Regular Expressions)<a class="headerlink" href="#regex-regular-expressions" title="Permanent link">🔗</a></h2>
+<p>A regular expression is a sequence of characters that specifies a search pattern for text. It's used in BetonQuest to
+check if game objects match a user-defined input. For example, <a href="#block-selectors">Block Selectors</a> use a regex to match
+multiple materials or block states. You can also use regular expressions in the 
+<a href="../Conditions-List/#variable-variable">variable condition</a> or the 
+<a href="../Objectives-List/#password-password">password objective</a> to match player names, item names, etc. These expressions are
+a very powerful tool, but can be confusing at first.</p>
+<h3 id="common-use-cases">Common Use Cases<a class="headerlink" href="#common-use-cases" title="Permanent link">🔗</a></h3>
+<table>
+<thead>
+<tr>
+<th>Use Case</th>
+<th>Regex</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A specific text e.g. <code>STONE</code></td>
+<td><code>STONE</code></td>
+</tr>
+<tr>
+<td>A text starting with <code>STONE</code></td>
+<td><code>STONE.*</code></td>
+</tr>
+<tr>
+<td>A text ending with <code>_LOG</code></td>
+<td><code>.*_LOG</code></td>
+</tr>
+<tr>
+<td>A specific number e.g. <code>42</code></td>
+<td><code>^42$</code></td>
+</tr>
+<tr>
+<td>A specific range of numbers, e.g. any number between 0 and 99</td>
+<td><code>[0-9]{1,2}</code></td>
+</tr>
+<tr>
+<td>Positive numbers only</td>
+<td><code>^\d+$</code></td>
+</tr>
+<tr>
+<td>Negative numbers only</td>
+<td><code>^-\d+$</code></td>
+</tr>
+<tr>
+<td>Any number</td>
+<td><code>[-+]?[0-9]+\.?[0-9]+</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="more-complex-use-cases">More complex use cases<a class="headerlink" href="#more-complex-use-cases" title="Permanent link">🔗</a></h3>
+<p>If you want to use complex patterns you must learn more about regular expressions. There are countless resources online,
+for example you could read this 
+<a href="https://medium.com/factory-mind/regex-tutorial-a-simple-cheatsheet-by-examples-649dc1c3f285">cheatsheet</a>.</p>
 
   
   
@@ -3778,7 +3898,7 @@ You can configure the interval which checks the conditions in the <a href="../Co
                 
               
               
-                Thanks for your feedback! Help us improve this page by using our  <a href="https://github.com/BetonQuest/BetonQuest/issues/new/?template=docs-feedback.yml&title=[Docs Feedback]+Reference+-+/Documentation/Reference/&version=2.0.0-DEV-405"> feedback form</a>.
+                Thanks for your feedback! Help us improve this page by using our  <a href="https://github.com/BetonQuest/BetonQuest/issues/new/?template=docs-feedback.yml&title=[Docs Feedback]+Reference+-+/Documentation/Reference/&version=2.0.0-DEV-406"> feedback form</a>.
               
             </div>
           
