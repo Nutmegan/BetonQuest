@@ -1930,6 +1930,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#type_transform" class="md-nav__link">
+    <span class="md-ellipsis">
+      TYPE_TRANSFORM
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#remove" class="md-nav__link">
     <span class="md-ellipsis">
       REMOVE
@@ -2665,6 +2674,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#type_transform" class="md-nav__link">
+    <span class="md-ellipsis">
+      TYPE_TRANSFORM
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#remove" class="md-nav__link">
     <span class="md-ellipsis">
       REMOVE
@@ -2847,6 +2865,16 @@ Utilizing this possibility will however override the default transformers. You n
 <span class="w">  </span><span class="nt">oldValueRegex</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">test</span><span class="w"></span>
 <span class="w">  </span><span class="nt">newValue</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">newTest</span><span class="w"></span>
 </code></pre></div></p>
+<h4 id="type_transform">TYPE_TRANSFORM<a class="headerlink" href="#type_transform" title="Permanent link">🔗</a></h4>
+<p>Transforms the data type of an existing key into the given Java data type. This will result in a different formatting
+in the YAML file. E.g. strings will be surrounded by quotes, numbers and booleans won't.
+<div class="highlight"><span class="filename">Syntax</span><pre><span></span><code><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TYPE_TRANSFORM</span><span class="w"></span>
+<span class="w">  </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">section.myKey</span><span class="w"></span>
+<span class="w">  </span><span class="nt">newType</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span><span class="w"> </span><span class="c1">#(1)!</span><span class="w"></span>
+</code></pre></div></p>
+<ol>
+<li>Either <code>string</code>, <code>integer</code>, <code>double</code>, <code>float</code> or <code>boolean</code>. </li>
+</ol>
 <h4 id="remove">REMOVE<a class="headerlink" href="#remove" title="Permanent link">🔗</a></h4>
 <p>Removes both sections and keys (including all nested contents).
 <div class="highlight"><span class="filename">Syntax</span><pre><span></span><code><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">REMOVE</span><span class="w"></span>
@@ -2897,7 +2925,7 @@ Utilizing this possibility will however override the default transformers. You n
                 
               
               
-                Thanks for your feedback! Help us improve this page by using our  <a href="https://github.com/BetonQuest/BetonQuest/issues/new/?template=docs-feedback.yml&title=[Docs Feedback]+ConfigurationFile+-+/API/ConfigurationFile/&version=2.0.0-DEV-410"> feedback form</a>.
+                Thanks for your feedback! Help us improve this page by using our  <a href="https://github.com/BetonQuest/BetonQuest/issues/new/?template=docs-feedback.yml&title=[Docs Feedback]+ConfigurationFile+-+/API/ConfigurationFile/&version=2.0.0-DEV-411"> feedback form</a>.
               
             </div>
           
