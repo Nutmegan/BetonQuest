@@ -5130,10 +5130,10 @@ be displayed to the player for which you ran the event.</p>
 <h2 id="magic"><a href="http://dev.bukkit.org/bukkit-plugins/magic/">Magic</a><a class="headerlink" href="#magic" title="Permanent link">🔗</a></h2>
 <h3 id="conditions_4">Conditions<a class="headerlink" href="#conditions_4" title="Permanent link">🔗</a></h3>
 <h4 id="wand-wand">Wand: <code>wand</code><a class="headerlink" href="#wand-wand" title="Permanent link">🔗</a></h4>
-<p>This condition can check wands. The first argument is either <code>hand</code>, <code>inventory</code> or <code>lost</code>. If you choose <code>lost</code>, the condition will check if the player has lost a wand. If you choose <code>hand</code>, the condition will check if you're holding a wand in your hand. <code>inventory</code> will check your whole inventory instead of just the hand. In case of <code>hand</code> and <code>inventory</code> arguments you can also add optional <code>name:</code> argument followed by the name of the wand (as defined in <em>wands.yml</em> in Magic plugin) to check if it's the specific type of the wand. In the case of <code>inventory</code> you can specify an amount with <code>amount</code> and this will only return true if a player has that amount. You can also use optional <code>spells:</code> argument, followed by a list of spells separated with a comma. Each spell in this list can have defined minimal level required, after a colon.</p>
+<p>This condition can check wands. The first argument is either <code>hand</code>, <code>inventory</code> or <code>lost</code>. If you choose <code>lost</code>, the condition will check if the player has lost a wand. If you choose <code>hand</code>, the condition will check if you're holding a wand in your hand. <code>inventory</code> will check your whole inventory instead of just the hand. In case of <code>hand</code> and <code>inventory</code> arguments you can also add optional <code>name:</code> argument followed by the name of the wand (as defined in <em>wands.yml</em> in Magic plugin) to check if it's the specific type of the wand. In the case of <code>inventory</code> you can specify an amount with <code>amount</code> and this will only return true if a player has that amount. You can also use optional <code>spells:</code> argument, followed by a list of spells separated with a comma. Each spell in this list must have a minimal level defined after a colon.</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">wand hand name:master spells:flare,missile:2</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">wand hand name:master spells:flare:3,missile:2</span><span class="w"></span>
 </code></pre></div>
 </div>
 <h2 id="mcmmo"><a href="https://www.spigotmc.org/resources/official-mcmmo-original-author-returns.64348/">McMMO</a><a class="headerlink" href="#mcmmo" title="Permanent link">🔗</a></h2>
@@ -5616,7 +5616,7 @@ If you have only a <code>.schem</code> schematic, simply append <code>.schem</co
   <small>
     
       Last update:
-      <span class='timeago' datetime='1645450651000' locale='en'></span>
+      <span class='timeago' datetime='1665832532000' locale='en'></span>
       
     
   </small>
