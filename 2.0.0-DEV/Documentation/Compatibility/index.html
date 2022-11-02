@@ -2741,11 +2741,11 @@
         <li class="md-nav__item">
   <a href="#vault" class="md-nav__link">
     <span class="md-ellipsis">
-      Vault
+       Vault
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Vault">
+    <nav class="md-nav" aria-label=" Vault">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2792,9 +2792,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#permission-permission" class="md-nav__link">
+  <a href="#change-permission-groups-permission" class="md-nav__link">
     <span class="md-ellipsis">
-      Permission: permission
+      Change Permission (Groups): permission
     </span>
   </a>
   
@@ -5587,11 +5587,11 @@
         <li class="md-nav__item">
   <a href="#vault" class="md-nav__link">
     <span class="md-ellipsis">
-      Vault
+       Vault
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Vault">
+    <nav class="md-nav" aria-label=" Vault">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -5638,9 +5638,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#permission-permission" class="md-nav__link">
+  <a href="#change-permission-groups-permission" class="md-nav__link">
     <span class="md-ellipsis">
-      Permission: permission
+      Change Permission (Groups): permission
     </span>
   </a>
   
@@ -6458,7 +6458,7 @@ The only supported variable for the marked argument is <code>%player%</code>.</p
 </tr>
 <tr>
 <td><em>marked</em></td>
-<td>notify:interval</td>
+<td>marked:text</td>
 <td>None</td>
 <td>Marks the mob. You can check for marked mobs in mmobkill objective.</td>
 </tr>
@@ -6480,7 +6480,7 @@ Additionally, the mob should be configured to never change its AI target using M
 <p>If you have this plugin, BetonQuest will add a <code>betonquest</code> placeholder to it and you will be able to use <code>ph</code> variable in your conversations.</p>
 <h3 id="placeholder-betonquest">Placeholder: <code>betonquest</code><a class="headerlink" href="#placeholder-betonquest" title="Permanent link">🔗</a></h3>
 <p>You can use all BetonQuest variables in any other plugin that supports PlaceholderAPI.
-You can even use BetonQuests conditions using the <a href="../Variables-List/#expose-conditions-to-3rd-party-plugins-condition">condition variable</a>!  <br />
+You can even use BetonQuests conditions using the <a href="../Variables-List/#condition-variable">condition variable</a>!  <br />
 This works using the <code>%betonquest_package:variable%</code> placeholder. The <code>package:</code> part is the name of a package.
 The <code>variable</code> part is just a <a href="../Variables-List/">BetonQuest variable</a> without percentage characters, like <code>point.beton.amount</code>.</p>
 <p>Testing your placeholder is easy using this command:  <br />
@@ -6670,39 +6670,110 @@ on large servers if used together with the <a href="../Configuration/#npc-hider-
 <span class="w">  </span><span class="nt">give_emeralds</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">give emerald:5</span><span class="w"></span>
 </code></pre></div></p>
 </div>
-<h2 id="vault"><a href="http://dev.bukkit.org/bukkit-plugins/vault/">Vault</a><a class="headerlink" href="#vault" title="Permanent link">🔗</a></h2>
-<p>By installing Vault you enable Permission event and Money condition/event.</p>
+<h2 id="vault"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 4h14a3 3 0 0 1 3 3v4h-7v-1H9v1H2V7a3 3 0 0 1 3-3m6 7h2v2h-2v-2m-9 1h7v1l2 2h2l2-2v-1h7v8H2v-8Z"/></svg></span> <a href="http://dev.bukkit.org/bukkit-plugins/vault/">Vault</a><a class="headerlink" href="#vault" title="Permanent link">🔗</a></h2>
 <h3 id="conditions_12">Conditions<a class="headerlink" href="#conditions_12" title="Permanent link">🔗</a></h3>
 <h4 id="vault-money-condition-money">Vault Money Condition: <code>money</code><a class="headerlink" href="#vault-money-condition-money" title="Permanent link">🔗</a></h4>
-<p>Checks if the player has specified amount of money. You can specify only one argument, amount integer. It cannot be negative!</p>
-<div class="admonition example">
-<p class="admonition-title">Example</p>
-<div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">money 500</span><span class="w"></span>
+<p>Checks if the player has the specified amount of money.</p>
+<div class="highlight"><pre><span></span><code><span class="nt">conditions</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">hasMoney</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;money</span><span class="nv"> </span><span class="s">1&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="nt">canAffordPlot</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;money</span><span class="nv"> </span><span class="s">10000&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="nt">isRich</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;money</span><span class="nv"> </span><span class="s">1000000&quot;</span><span class="w"></span>
 </code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Invert this condition if you want to check if the player has less money than specified. Example:
+<div class="highlight"><pre><span></span><code><span class="nt">conditions</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">isRich</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;money</span><span class="nv"> </span><span class="s">100000&quot;</span><span class="w"></span>
+<span class="nt">events</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">giveSubsidy</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;money</span><span class="nv"> </span><span class="s">+500</span><span class="nv"> </span><span class="s">conditions:!isRich&quot;</span><span class="w"> </span><span class="c1">#(1)!</span><span class="w"></span>
+</code></pre></div></p>
+<ol>
+<li>If the player has less than 100000 money, the <code>giveSubsidy</code> event will be fired.    </li>
+</ol>
 </div>
 <h3 id="events_12">Events<a class="headerlink" href="#events_12" title="Permanent link">🔗</a></h3>
 <h4 id="vault-money-event-money">Vault Money Event: <code>money</code><a class="headerlink" href="#vault-money-event-money" title="Permanent link">🔗</a></h4>
-<p>Deposits, withdraws or multiplies money on player's account. There is only one argument, amount of money to modify. It can be positive, negative or start with an asterisk for multiplication.</p>
-<div class="admonition example">
-<p class="admonition-title">Example</p>
-<div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">money -100</span><span class="w"></span>
+<p>Deposits, withdraws or multiplies money in the player's account.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Syntax</th>
+<th>Default Value</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>amount</em></td>
+<td>Number</td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M3.404 12.596a6.5 6.5 0 1 1 9.192-9.192 6.5 6.5 0 0 1-9.192 9.192zM2.344 2.343a8 8 0 1 0 11.313 11.314A8 8 0 0 0 2.343 2.343zM6.03 4.97a.75.75 0 0 0-1.06 1.06L6.94 8 4.97 9.97a.75.75 0 1 0 1.06 1.06L8 9.06l1.97 1.97a.75.75 0 1 0 1.06-1.06L9.06 8l1.97-1.97a.75.75 0 1 0-1.06-1.06L8 6.94 6.03 4.97z"/></svg></span></td>
+<td>The amount of money to add or remove. Use <code>*</code> to multiply.</td>
+</tr>
+<tr>
+<td><em>notify</em></td>
+<td>Keyword: <code>notify</code></td>
+<td>Disabled</td>
+<td>Display a message to the player when their balance is changed.</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><span class="nt">events</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">sellItem</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;money</span><span class="nv"> </span><span class="s">+100&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="nt">buyPlot</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;money</span><span class="nv"> </span><span class="s">-10000&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="nt">winLottery</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;money</span><span class="nv"> </span><span class="s">*7</span><span class="nv"> </span><span class="s">notify&quot;</span><span class="w"></span>
 </code></pre></div>
-</div>
-<h4 id="permission-permission">Permission: <code>permission</code><a class="headerlink" href="#permission-permission" title="Permanent link">🔗</a></h4>
-<p>Adds or removes a permission or a group. First argument is <code>add</code> or <code>remove</code>. It's self-explanatory. Second is <code>perm</code> or <code>group</code>. It also shouldn't be hard to figure out. Next thing is actual string you want to add/remove. At the end you can also specify world in which you want these permissions. If the world name is omitted then permission/group will be global.</p>
-<div class="admonition example">
-<p class="admonition-title">Example</p>
-<div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">permission remove group bandit world_nether</span><span class="w"></span>
+<h4 id="change-permission-groups-permission">Change Permission (Groups): <code>permission</code><a class="headerlink" href="#change-permission-groups-permission" title="Permanent link">🔗</a></h4>
+<p>Adds or removes a permission or a group.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Syntax</th>
+<th>Default Value</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>action</em></td>
+<td><code>add</code> or <code>remove</code></td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M3.404 12.596a6.5 6.5 0 1 1 9.192-9.192 6.5 6.5 0 0 1-9.192 9.192zM2.344 2.343a8 8 0 1 0 11.313 11.314A8 8 0 0 0 2.343 2.343zM6.03 4.97a.75.75 0 0 0-1.06 1.06L6.94 8 4.97 9.97a.75.75 0 1 0 1.06 1.06L8 9.06l1.97 1.97a.75.75 0 1 0 1.06-1.06L9.06 8l1.97-1.97a.75.75 0 1 0-1.06-1.06L8 6.94 6.03 4.97z"/></svg></span></td>
+<td>Whether to add or remove the thing specified using the following arguments.</td>
+</tr>
+<tr>
+<td><em>type</em></td>
+<td><code>perm</code> or <code>group</code></td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M3.404 12.596a6.5 6.5 0 1 1 9.192-9.192 6.5 6.5 0 0 1-9.192 9.192zM2.344 2.343a8 8 0 1 0 11.313 11.314A8 8 0 0 0 2.343 2.343zM6.03 4.97a.75.75 0 0 0-1.06 1.06L6.94 8 4.97 9.97a.75.75 0 1 0 1.06 1.06L8 9.06l1.97 1.97a.75.75 0 1 0 1.06-1.06L9.06 8l1.97-1.97a.75.75 0 1 0-1.06-1.06L8 6.94 6.03 4.97z"/></svg></span></td>
+<td>Whether to use a permission or permission group.</td>
+</tr>
+<tr>
+<td><em>name</em></td>
+<td>The name of the permission.</td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M3.404 12.596a6.5 6.5 0 1 1 9.192-9.192 6.5 6.5 0 0 1-9.192 9.192zM2.344 2.343a8 8 0 1 0 11.313 11.314A8 8 0 0 0 2.343 2.343zM6.03 4.97a.75.75 0 0 0-1.06 1.06L6.94 8 4.97 9.97a.75.75 0 1 0 1.06 1.06L8 9.06l1.97 1.97a.75.75 0 1 0 1.06-1.06L9.06 8l1.97-1.97a.75.75 0 1 0-1.06-1.06L8 6.94 6.03 4.97z"/></svg></span></td>
+<td>The name of the permission or group to add.</td>
+</tr>
+<tr>
+<td><em>world</em></td>
+<td>The name of the world.</td>
+<td>Global</td>
+<td>You can limit permissions to certain worlds only. If no world is set the permission will be set everywhere (global).</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><span class="nt">events</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">allowFly</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;permission</span><span class="nv"> </span><span class="s">add</span><span class="nv"> </span><span class="s">perm</span><span class="nv"> </span><span class="s">essentials.fly&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="nt">joinBandit</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;permission</span><span class="nv"> </span><span class="s">add</span><span class="nv"> </span><span class="s">group</span><span class="nv"> </span><span class="s">bandit&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="nt">leaveBandit</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;permission</span><span class="nv"> </span><span class="s">remove</span><span class="nv"> </span><span class="s">group</span><span class="nv"> </span><span class="s">bandit&quot;</span><span class="w"></span>
 </code></pre></div>
-</div>
 <h3 id="variables">Variables<a class="headerlink" href="#variables" title="Permanent link">🔗</a></h3>
 <h4 id="vault-money-variable-money">Vault Money Variable: <code>money</code><a class="headerlink" href="#vault-money-variable-money" title="Permanent link">🔗</a></h4>
-<p>There is only one argument in this variable, <code>amount</code> for showing money amount or <code>left:</code> followed by a number for showing the difference between it and amount of money.</p>
-<div class="admonition example">
-<p class="admonition-title">Example</p>
-<div class="highlight"><pre><span></span><code><span class="err">%</span><span class="l l-Scalar l-Scalar-Plain">money.left:500%</span><span class="w"></span>
+<p>Use <code>%money.amount%</code> for showing the player's balance.
+Use <code>%money.left:500%</code> for showing the difference between the player's balance and the specified amount of money.</p>
+<div class="highlight"><pre><span></span><code><span class="nt">events</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">notifyBalance</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;notify</span><span class="nv"> </span><span class="s">You</span><span class="nv"> </span><span class="s">have</span><span class="nv"> </span><span class="s">%money.amount%$!&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="nt">notifyNotEnough</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;notify</span><span class="nv"> </span><span class="s">You</span><span class="nv"> </span><span class="s">still</span><span class="nv"> </span><span class="s">need</span><span class="nv"> </span><span class="s">%money.left:10000%$</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">buy</span><span class="nv"> </span><span class="s">this</span><span class="nv"> </span><span class="s">plot.&quot;</span><span class="w"></span>
 </code></pre></div>
-</div>
 <h2 id="worldedit-or-fastasyncworldedit"><a href="http://dev.bukkit.org/bukkit-plugins/worldedit/">WorldEdit</a> or <a href="https://www.spigotmc.org/resources/13932/">FastAsyncWorldEdit</a><a class="headerlink" href="#worldedit-or-fastasyncworldedit" title="Permanent link">🔗</a></h2>
 <h3 id="events_13">Events<a class="headerlink" href="#events_13" title="Permanent link">🔗</a></h3>
 <h4 id="paste-schematic-paste">Paste schematic: <code>paste</code><a class="headerlink" href="#paste-schematic-paste" title="Permanent link">🔗</a></h4>
