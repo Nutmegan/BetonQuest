@@ -2934,16 +2934,20 @@ tbody td:nth-child(1), th:nth-child(1) {
   left: 0;
   background-color: var(--md-default-bg-color) !important;
 }
+tbody > tr:nth-child(1) > td:not(:first-child) {
+  font-weight: bold;
+}
+
 /* compare table - second colum - highlight BQ */
 tbody td:nth-child(2) {
   background-color: rgba(0, 0, 0, 0.2);
 }
-/* compare table - 12 row - set background and force it for colum 1 */
-tbody tr:nth-child(12), tr:nth-child(12) td:nth-child(1) {
+/* compare table - 13 row - set background and force it for colum 1 */
+tbody tr:nth-child(13), tr:nth-child(13) td:nth-child(1) {
   background-color: var(--md-primary-fg-color) !important;
 }
-/* compare table - 12 row - format heading */
-tbody tr:nth-child(12) p {
+/* compare table - 13 row - format heading */
+tbody tr:nth-child(13) p {
   font-size: medium;
   font-weight: 700;
   text-decoration: underline;
@@ -3015,6 +3019,8 @@ proper RPG experience needs to check this plugin out. Quest on!!</p>
 </div>
 </div>
 <h2 id="betonquest-alternatives">BetonQuest Alternatives<a class="headerlink" href="#betonquest-alternatives" title="Permanent link">🔗</a></h2>
+<script defer type="text/javascript" src="./_webCode/js/tableRating.js"></script>
+
 <table>
 <thead>
 <tr>
@@ -3030,6 +3036,17 @@ proper RPG experience needs to check this plugin out. Quest on!!</p>
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>Spigot Rating</td>
+<td align="center">Loading...</td>
+<td align="center">Loading...</td>
+<td align="center">Loading...</td>
+<td align="center">Loading...</td>
+<td align="center">Loading...</td>
+<td align="center">Loading...</td>
+<td align="center">Loading...</td>
+<td align="center">Loading...</td>
+</tr>
 <tr>
 <td>Free</td>
 <td align="center"><img alt="✅" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/2705.svg" title=":white_check_mark:" /></td>
@@ -3070,7 +3087,7 @@ proper RPG experience needs to check this plugin out. Quest on!!</p>
 <td align="center">1.8 - 1.19</td>
 <td align="center">1.17 - 1.19</td>
 <td align="center">1.8 - 1.19</td>
-<td align="center">1.13 - 1.16.5</td>
+<td align="center">1.13 - 1.19</td>
 <td align="center">1.7 - 1.19</td>
 <td align="center">1.7 - 1.19</td>
 </tr>
