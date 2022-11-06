@@ -2696,7 +2696,7 @@ We're going to add a blacksmith NPC that the player can talk to.</p>
 <p>Open the newly created file "<em>objectives.yml</em>" and add the following:</p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">objectives.yml</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">objectives</span><span class="p">:</span><span class="w"> </span><span class="c1"># (1)!</span><span class="w"></span>
-<span class="w">  </span><span class="nt">fishingObj</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;fish</span><span class="nv"> </span><span class="s">cod</span><span class="nv"> </span><span class="s">10</span><span class="nv"> </span><span class="s">notify</span><span class="nv"> </span><span class="s">hookLocation:100;50;100;world</span><span class="nv"> </span><span class="s">range:20</span><span class="nv"> </span><span class="s">events:caughtAllFish&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="nt">fishingObj</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;fish</span><span class="nv"> </span><span class="s">cod</span><span class="nv"> </span><span class="s">3</span><span class="nv"> </span><span class="s">notify</span><span class="nv"> </span><span class="s">hookLocation:100;63;100;world</span><span class="nv"> </span><span class="s">range:20</span><span class="nv"> </span><span class="s">events:caughtAllFish&quot;</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
 <ol>
 <li>All objectives must be defined in an <code>objectives</code> section.</li>
@@ -2708,14 +2708,14 @@ We're going to add a blacksmith NPC that the player can talk to.</p>
 <li>The Objective Instruction.<ul>
 <li><code>fish</code>: The first value in the instruction is always the <strong>objective type</strong>.</li>
 <li><code>cod</code>: This is an <strong>option</strong> of the objective <code>fish</code>. It defines which item you have to fish.</li>
-<li><code>10</code>: This is another <strong>option</strong>. It defines the amount to fish.</li>
+<li><code>3</code>: This is another <strong>option</strong>. It defines the amount to fish.</li>
 <li><code>notify</code>: This is a general argument for most objectives. It enables a notification when the player progresses the objective.</li>
-<li><code>hookLocation:100;50;100;world</code>: This <strong>option</strong> defines where the hook of the fishing rod must be located. Only fish that are 
-   fished in this specific area are counted by the objective.</li>
+<li><code>hookLocation:100;63;100;world</code>: This <strong>option</strong> defines where the hook of the fishing rod must be located. Only fish that are 
+   fished in this specific area are counted by the objective. You must adjust this to your world!</li>
 <li><code>range:20</code>: If you use the hook location you also have to define the range <strong>option</strong>. This is the range around the hook location coordinate
    where fished things are still counted.</li>
 <li><code>events:caughtAllFish</code>: This is not an option of the fish objective but a general objective argument. The defined event(s)
-   get triggered once the objective is completed (after you caught 10 cod at the specified hook location).</li>
+   get triggered once the objective is completed (after you caught 3 cod at the specified hook location).</li>
 </ul>
 </li>
 </ul>
@@ -2758,8 +2758,14 @@ Type <code>/bq reload</code> on your server after saving.</p>
 The easiest way to do this is by running a command:</p>
 <p>Enter <code>/bq objective YOUR_NAME add tutorialQuest.fishObj</code> on the server.
 This command will start the objective for the player.
-If you want to check if you have done it correctly, go to the defined location and fish 10 cod. After you caught 10 cod
+If you want to check if you have done it correctly, go to the defined location and fish 3 cod. After you caught 3 cod
 you should get a notification.</p>
+<div class="admonition tip">
+<p class="admonition-title">Faster Fishing</p>
+<p>Use this command to get a superfast fishing rod:
+<div class="highlight"><pre><span></span><code>/give @p fishing_rod{display:{Name:&#39;{&quot;text&quot;:&quot;Instant Fishing Rod&quot;,&quot;color&quot;:&quot;yellow&quot;,&quot;italic&quot;:true}&#39;,Lore:[&#39;{&quot;text&quot;:&quot;Instantly summons a hungry fish...&quot;}&#39;]},HideFlags:1,Enchantments:[{id:&quot;minecraft:lure&quot;,lvl:100s}]} 1
+</code></pre></div></p>
+</div>
 <table>
 <thead>
 <tr>
@@ -2857,7 +2863,7 @@ Let's add an event to start the fishing objective:</p>
 <span class="w">        </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">So every new citizens in our town will get a new armour from me but you have to do something for me in order to get this really nice upgrade!</span><span class="w"></span>
 <span class="w">        </span><span class="nt">pointer</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">whatToDo</span><span class="w"></span>
 <span class="w">      </span><span class="nt">collectFish</span><span class="p">:</span><span class="w"></span>
-<span class="w">        </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">You will have to fish 10 fresh cod for me and bring them to me. After that I will give you the nice new armour! Is that a deal?</span><span class="w"></span>
+<span class="w">        </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">You will have to fish 3 fresh cod for me and bring them to me. After that I will give you the nice new armour! Is that a deal?</span><span class="w"></span>
 <span class="w">        </span><span class="nt">pointer</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">accept,deny</span><span class="w"> </span><span class="c1"># (1)!</span><span class="w"></span>
 <span class="w">      </span><span class="nt">maybeLater</span><span class="p">:</span><span class="w"></span>
 <span class="w">        </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">No problem! You can comeback later aswell. Bye!</span><span class="w"></span>
@@ -2880,7 +2886,7 @@ Let's add an event to start the fishing objective:</p>
 </code></pre></div></td></tr></table></div>
 <ol>
 <li>The player have the choice to say yes or no.</li>
-<li>This is the event to start your actual objective task to fish 10 fresh cod.</li>
+<li>This is the event to start your actual objective task to fish 3 fresh cod.</li>
 </ol>
 <p>Now link the conversation to a new NPC that is placed wherever the city tour ends. You should already know how to link
 the dialog to the npc in "<em>package.yml</em>". If not, <a href="../Conversations/#1-linking-a-conversation-to-a-npc">check the previous tutorials</a>!</p>

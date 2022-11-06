@@ -2826,10 +2826,10 @@ Linking NPCs to conversations is explained in the <a href="/Tutorials/Getting-St
 </span><span class="hll"><span class="w">  </span><span class="nt">tpBlacksmith</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;teleport</span><span class="nv"> </span><span class="s">50;70;50;world&quot;</span><span class="w"> </span><span class="c1"># (4)!</span><span class="w"></span>
 </span></code></pre></div></td></tr></table></div></p>
 <ol>
-<li>Adjust this to your world. It must be in the <a href="../../../../Documentation/Reference/#unified-location-formating">unified location format</a></li>
-<li>Adjust this to your world. It must be in the <a href="../../../../Documentation/Reference/#unified-location-formating">unified location format</a></li>
-<li>Adjust this to your world. It must be in the <a href="../../../../Documentation/Reference/#unified-location-formating">unified location format</a></li>
-<li>Adjust this to your world. It must be in the <a href="../../../../Documentation/Reference/#unified-location-formating">unified location format</a></li>
+<li>Adjust the coordinates and world name to your world. It must be in the <a href="../../../../Documentation/Reference/#unified-location-formating">unified location format</a></li>
+<li>Adjust the coordinates and world name to your world. It must be in the <a href="../../../../Documentation/Reference/#unified-location-formating">unified location format</a></li>
+<li>Adjust the coordinates and world name to your world. It must be in the <a href="../../../../Documentation/Reference/#unified-location-formating">unified location format</a></li>
+<li>Adjust the coordinates and world name to your world. It must be in the <a href="../../../../Documentation/Reference/#unified-location-formating">unified location format</a></li>
 </ol>
 <p>As you can see, there are a few new events of the types <code>folder</code> and <code>teleport</code>.
 The folder event wraps multiple events inside itself. Once triggered, it simply executes its events. 
@@ -2837,6 +2837,11 @@ Every event type is documented in the events list, read more about the <a href="
 and <a href="../../../../Documentation/Events-List/#teleport-teleport">teleport</a> events there. </p>
 <p>Running the <code>townTour</code> event will teleport you to a new location every five seconds
 until we get to our final destination, the blacksmith. The folder event is done after the <code>tpBlacksmith</code> event was run.</p>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p>Make sure you are in creative mode when testing this event. Otherwise, you might die from fall- or suffocation damage.
+Running <code>/gamemode creative</code> will change your game mode to creative.</p>
+</div>
 <p>Now we will add the folder event to Jack's conversation.
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">jack.yml</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>

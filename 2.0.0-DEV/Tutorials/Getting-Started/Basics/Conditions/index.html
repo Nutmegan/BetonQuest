@@ -2884,7 +2884,7 @@ The objective will only progress when the condition is "true".
 In this case we want to achieve that the player is only able to make progress when he's fishing at night.
 Let's add the condition <code>isDay</code> to the objective:</p>
 <p><div class="highlight"><span class="filename">objectives.yml</span><pre><span></span><code><span class="nt">objectives</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">fishingObj</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;fish</span><span class="nv"> </span><span class="s">COD</span><span class="nv"> </span><span class="s">10</span><span class="nv"> </span><span class="s">hookLocation:100;50;100;world</span><span class="nv"> </span><span class="s">range:20</span><span class="nv"> </span><span class="s">events:caughtAllFish</span><span class="nv"> </span><span class="s"><mark class="critic">conditions:!isDay</mark>&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="nt">fishingObj</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;fish</span><span class="nv"> </span><span class="s">COD</span><span class="nv"> </span><span class="s">3</span><span class="nv"> </span><span class="s">hookLocation:100;63;100;world</span><span class="nv"> </span><span class="s">range:20</span><span class="nv"> </span><span class="s">events:caughtAllFish</span><span class="nv"> </span><span class="s"><mark class="critic">conditions:!isDay</mark>&quot;</span><span class="w"></span>
 </code></pre></div>
 We can see multiple things here:</p>
 <ul>
@@ -2967,11 +2967,11 @@ condition to not repeat the specified part of the conversation.</p>
 
 <span class="w">    </span><span class="nt">player_options</span><span class="p">:</span><span class="w"></span>
 <span class="w">      </span><span class="c1"># Other player_options not shown</span><span class="w"></span>
-<span class="w">      </span><span class="nt">saySorry</span><span class="p">:</span><span class="w"></span>
-<span class="hll"><span class="w">        </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;You</span><span class="nv"> </span><span class="s">are</span><span class="nv"> </span><span class="s">right.</span><span class="nv"> </span><span class="s">Thanks</span><span class="nv"> </span><span class="s">again!&quot;</span><span class="w"></span>
+<span class="hll"><span class="w">      </span><span class="nt">saySorry</span><span class="p">:</span><span class="w"></span>
+</span><span class="hll"><span class="w">        </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;You</span><span class="nv"> </span><span class="s">are</span><span class="nv"> </span><span class="s">right.</span><span class="nv"> </span><span class="s">Thanks</span><span class="nv"> </span><span class="s">again!&quot;</span><span class="w"></span>
 </span><span class="hll"><span class="w">        </span><span class="nt">pointer</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;townTour&quot;</span><span class="w"></span>
-</span><span class="hll"><span class="w">      </span><span class="c1"># Other player_options not shown</span><span class="w"></span>
-</span></code></pre></div>
+</span><span class="w">      </span><span class="c1"># Other player_options not shown</span><span class="w"></span>
+</code></pre></div>
 <ol>
 <li>This option checks all possible starting points for the conversation from left to right.
    The first option that the player matches the conditions for will be used. The conditions can be found down in the
@@ -3029,7 +3029,7 @@ start over and over again. Let's fix that!</p>
 <span class="w">      </span><span class="c1"># Other player_options not shown</span><span class="w"></span>
 <span class="w">      </span><span class="nt">accept</span><span class="p">:</span><span class="w"></span>
 <span class="w">        </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Sure!</span><span class="nv"> </span><span class="s">I</span><span class="nv"> </span><span class="s">could</span><span class="nv"> </span><span class="s">use</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">new</span><span class="nv"> </span><span class="s">armour.&quot;</span><span class="w"></span>
-<span class="w">        </span><span class="nt">event</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;startFishingObj<mark class="critic">,startedFishingTagAdd</mark>&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="nt">event</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;startFishingObj<mark class="critic">,addStartedFishingTag</mark>&quot;</span><span class="w"></span>
 <span class="w">        </span><span class="nt">pointer</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;goodLuck&quot;</span><span class="w"></span>
 <span class="w">      </span><span class="c1"># Other player_options not shown</span><span class="w"></span>
 </code></pre></div></p>
@@ -3041,16 +3041,16 @@ We can do so with an <code>item</code> condition.</p>
 <span class="w">  </span><span class="nt">hasRecivedFood</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;tag</span><span class="nv"> </span><span class="s">foodReceived&quot;</span><span class="w"></span>
 <span class="w">  </span><span class="nt">hasDoneTour</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;tag</span><span class="nv"> </span><span class="s">tourDone&quot;</span><span class="w"></span>
 <span class="hll"><span class="w">  </span><span class="nt">hasStartedFishing</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;tag</span><span class="nv"> </span><span class="s">startedFishing&quot;</span><span class="w"></span>
-</span><span class="hll"><span class="w">  </span><span class="nt">hasFishInInv</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;item</span><span class="nv"> </span><span class="s">COD:10&quot;</span><span class="w"></span>
+</span><span class="hll"><span class="w">  </span><span class="nt">hasFishInInv</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;item</span><span class="nv"> </span><span class="s">COD:3&quot;</span><span class="w"></span>
 </span><span class="w">  </span><span class="nt">hasDoneQuest</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;tag</span><span class="nv"> </span><span class="s">questDone&quot;</span><span class="w"></span>
 </code></pre></div>
 Additionally, we must add the new events as well. 
-Those remove 10 cod from the players inventory and add a tag for completing the quest.</p>
+Those remove 3 cod from the players inventory and add a tag for completing the quest.</p>
 <div class="highlight"><span class="filename">events.yml</span><pre><span></span><code><span class="nt">events</span><span class="p">:</span><span class="w"></span>
 <span class="w">  </span><span class="c1"># Other events not shown</span><span class="w"></span>
 <span class="hll"><span class="w">  </span><span class="nt">addStartedFishingTag</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;tag</span><span class="nv"> </span><span class="s">add</span><span class="nv"> </span><span class="s">startedFishing&quot;</span><span class="w"></span>
 </span><span class="hll"><span class="w">  </span><span class="nt">addQuestDoneTag</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;tag</span><span class="nv"> </span><span class="s">add</span><span class="nv"> </span><span class="s">questDone&quot;</span><span class="w"></span>
-</span><span class="hll"><span class="w">  </span><span class="nt">takeFishFromPlayer</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;take</span><span class="nv"> </span><span class="s">cod:10&quot;</span><span class="w">  </span>
+</span><span class="hll"><span class="w">  </span><span class="nt">takeFishFromPlayer</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;take</span><span class="nv"> </span><span class="s">cod:3&quot;</span><span class="w">  </span>
 </span></code></pre></div>
 <p>Now lets use all these new elements to finish up the conversation.</p>
 <p>Note that we check the <code>hasFishInInv</code> twice in the dialog. This prevents players from cheating by dropping the items once
