@@ -2738,7 +2738,19 @@ If you plan on doing something with this API please keep in mind that you will n
 <h2 id="writing-variables">Writing variables<a class="headerlink" href="#writing-variables" title="Permanent link">🔗</a></h2>
 <p>All variables need to extend <code>Variable</code> class. In the constructor you must parse the instruction and extract all information about your variable's behavior. Then you have to override the <code>String getValue(String playerID)</code> method. It should return the value of the variable for the supplied player. If it's impossible, it should return an empty String. Registering variables is done via <code>BetonQuest.registerVariable(String name, Class&lt;? extends Variable&gt; variable)</code> method.</p>
 <h2 id="firing-events">Firing events<a class="headerlink" href="#firing-events" title="Permanent link">🔗</a></h2>
-<p>The plugin has a static method for firing events - <code>event(String playerID, EventID eventID)</code>. First parameter is ID of the player. Second one represents ID of the event. To get it, simply create an instance of the <code>EventID</code> class. You can't fire an event directly using an instruction string.</p>
+<p>The plugin has a static method for firing events - <code>event(String playerID, EventID eventID)</code>.</p>
+<p>You can't fire an event directly using an instruction string.</p>
+<div class="highlight"><span class="filename">Example</span><pre><span></span><code><span class="kd">final</span><span class="w"> </span><span class="n">QuestPackage</span><span class="w"> </span><span class="n">questPackage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Config</span><span class="p">.</span><span class="na">getPackages</span><span class="p">().</span><span class="na">get</span><span class="p">(</span><span class="s">&quot;myPackage&quot;</span><span class="p">)</span><span class="w"> </span><span class="c1">//(1)!</span><span class="w"></span>
+<span class="kd">final</span><span class="w"> </span><span class="n">Profile</span><span class="w"> </span><span class="n">playerProfile</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PlayerConverter</span><span class="p">.</span><span class="na">getID</span><span class="p">(</span><span class="n">player</span><span class="p">);</span><span class="w"> </span><span class="c1">//(2)!</span><span class="w"></span>
+
+<span class="n">BetonQuest</span><span class="p">.</span><span class="na">event</span><span class="p">(</span><span class="n">playerProfile</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">EventID</span><span class="p">(</span><span class="n">questPackage</span><span class="p">,</span><span class="w"> </span><span class="n">eventID</span><span class="p">));</span><span class="w"> </span>
+</code></pre></div>
+<ol>
+<li>You can get the package from the <code>Config</code> class. It's a map of all packages, so you can get the one you need by its
+   name.</li>
+<li>You can get the player's profile from the <code>PlayerConverter</code> class. You can use the player object to obtain a players 
+   profile.</li>
+</ol>
 <h2 id="checking-conditions">Checking conditions<a class="headerlink" href="#checking-conditions" title="Permanent link">🔗</a></h2>
 <p>BetonQuest has static boolean method <code>condition(String playerID, String conditionID)</code>. It works similarly as event method described above.</p>
 <h2 id="starting-objectives">Starting objectives<a class="headerlink" href="#starting-objectives" title="Permanent link">🔗</a></h2>
@@ -2747,7 +2759,10 @@ If you plan on doing something with this API please keep in mind that you will n
 <p>In order to register an object as the conversation input/output it needs to implement <code>ConversationIO</code> interface. The constructor will receive three arguments: Conversation object, playerID String and NPC name String. It needs to parse the required data here and register all needed listeners. The <code>setResponse(String response)</code> method will receive NPC's text from the conversation. The <code>addOption(String option)</code> method will be called by the conversation for each reply option for this NPC text. The object must store all this data and when <code>display()</code> is called, it must use it to display the player the output. When it detects that the player chose an answer, it should pass it to the conversation using <code>Conversation.passPlayerAnswer(int number)</code> method. The integer is the number of the answer, starting at 1. <code>clear()</code> method will be called at the beginning of the new conversation cycle. It should clear all the previous options, so they do not overlap. <code>end()</code> method will be called when the conversation ends, and it should unregister all listeners. You can also call that message when you detect that the player forced conversation ending (for example by moving away from the NPC). Remember to notify the conversation about that using <code>Conversation.end()</code>.</p>
 <p>Registering the conversation inputs/outputs is done in the same way as objectives, events and conditions, through <code>BetonQuest.registerConversationIO(String name, Class&lt;? extends ConversationIO&gt;)</code> method.</p>
 <h2 id="listening-to-betonquest-bukkit-events">Listening to BetonQuest (Bukkit) events<a class="headerlink" href="#listening-to-betonquest-bukkit-events" title="Permanent link">🔗</a></h2>
-<p>BetonQuest calls Bukkit events occasionally: when a conversation is started, finished and when an option is selected. You can find these events in <code>org.betonquest.betonquest.api</code> package and use them in your plugins. If you need any additional events just open and issue on GitHub or open a pull request.</p>
+<p>BetonQuest exposes some of its actions as Bukkit events.<br />
+You can find these events in <code>org.betonquest.betonquest.api</code> package.
+<a href="https://bukkit.fandom.com/wiki/Event_API_Reference#The_Basics">Use them as you would use any other Bukkit event</a>.</p>
+<p>If you need any additional events just open an issue or pull request on GitHub.</p>
 
   
   
@@ -2793,7 +2808,7 @@ If you plan on doing something with this API please keep in mind that you will n
                 
               
               
-                Thanks for your feedback! Help us improve this page by using our  <a href="https://github.com/BetonQuest/BetonQuest/issues/new/?template=docs-feedback.yml&title=[Docs Feedback]+Legacy%20API+-+/API/API/&version=2.0.0-DEV-442"> feedback form</a>.
+                Thanks for your feedback! Help us improve this page by using our  <a href="https://github.com/BetonQuest/BetonQuest/issues/new/?template=docs-feedback.yml&title=[Docs Feedback]+Legacy%20API+-+/API/API/&version=2.0.0-DEV-443"> feedback form</a>.
               
             </div>
           
