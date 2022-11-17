@@ -111,6 +111,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://docs.betonquest.org/2.0.0-DEV/Documentation/Packages-%26-Templates/</loc>
+         <lastmod>2022-11-17</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://docs.betonquest.org/2.0.0-DEV/Documentation/Reference/</loc>
          <lastmod>2022-11-17</lastmod>
          <changefreq>daily</changefreq>
