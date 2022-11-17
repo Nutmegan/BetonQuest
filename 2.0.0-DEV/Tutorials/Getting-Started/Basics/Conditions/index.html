@@ -3023,7 +3023,7 @@ Later on, you will learn more about them in another tutorial.</p>
   it after what it should check.</li>
 <li>The Condition Instruction:<ul>
 <li><code>tag</code>: The first value in the instruction is always the <strong>condition type</strong>.</li>
-<li><code>foodReceivedTag</code>: This is the name of the tag that the player must have.</li>
+<li><code>foodReceived</code>: This is the name of the tag that the player must have.</li>
 </ul>
 </li>
 </ul>
@@ -3054,7 +3054,7 @@ condition to not repeat the specified part of the conversation.</p>
 <span class="w">        </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;You&#39;re</span><span class="nv"> </span><span class="s">welcome!</span><span class="nv"> </span><span class="s">Take</span><span class="nv"> </span><span class="s">it...</span><span class="nv"> </span><span class="s">&amp;7*gives</span><span class="nv"> </span><span class="s">food*&quot;</span><span class="w"></span>
 <span class="w">        </span><span class="nt">events</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;giveFoodToPlayer,<mark class="critic">addFoodReceivedTag</mark>&quot;</span><span class="w"> </span><span class="c1">#(3)!</span><span class="w"></span>
 <span class="w">        </span><span class="nt">pointer</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;thankYou&quot;</span><span class="w"></span>
-<span class="w">        </span><span class="nt">conditions</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;!foodReceivedTag&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="nt">conditions</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;!hasReceivedFood&quot;</span><span class="w"></span>
 <span class="hll"><span class="w">      </span><span class="nt">alreadyReceivedFood</span><span class="p">:</span><span class="w"></span>
 </span><span class="hll"><span class="w">        </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Hey</span><span class="nv"> </span><span class="s">%player%!</span><span class="nv"> </span><span class="s">I</span><span class="nv"> </span><span class="s">think</span><span class="nv"> </span><span class="s">I</span><span class="nv"> </span><span class="s">already</span><span class="nv"> </span><span class="s">gave</span><span class="nv"> </span><span class="s">you</span><span class="nv"> </span><span class="s">your</span><span class="nv"> </span><span class="s">welcome</span><span class="nv"> </span><span class="s">food...&quot;</span><span class="w"></span>
 </span><span class="hll"><span class="w">        </span><span class="nt">conditions</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;hasReceivedFood&quot;</span><span class="w">  </span><span class="c1">#(4)!</span><span class="w"></span>
@@ -3078,7 +3078,7 @@ condition to not repeat the specified part of the conversation.</p>
    This is because this option has no conditions and is the last option in the <code>first</code> list.</li>
 <li>These events will be executed if the player chooses the <code>foodAnswer</code> option. It will give the player the food and the
    tag <code>foodReceived</code>.</li>
-<li>This condition ensures that the player will only see the <code>alreadyFoodReceived</code> option if he has the tag <code>foodReceivedTag</code>.</li>
+<li>This condition ensures that the player will only see the <code>alreadyFoodReceived</code> option if he has the tag <code>foodReceived</code>.</li>
 </ol>
 <p>As you can see we also added new options to it. Now the NPC will say that you already received the food
 and won't give you more!</p>
