@@ -2285,20 +2285,35 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#maven-verify" class="md-nav__link">
+  <a href="#make-changes" class="md-nav__link">
     <span class="md-ellipsis">
-      Maven verify
+      Make changes
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#make-changes" class="md-nav__link">
+  <a href="#maven-verify" class="md-nav__link">
     <span class="md-ellipsis">
-      Make changes
+      Maven verify
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Maven verify">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#maven-profiles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Maven profiles
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2662,20 +2677,35 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#maven-verify" class="md-nav__link">
+  <a href="#make-changes" class="md-nav__link">
     <span class="md-ellipsis">
-      Maven verify
+      Make changes
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#make-changes" class="md-nav__link">
+  <a href="#maven-verify" class="md-nav__link">
     <span class="md-ellipsis">
-      Make changes
+      Maven verify
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Maven verify">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#maven-profiles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Maven profiles
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2719,9 +2749,9 @@
 <p>Make sure to <a href="../../../Setup-Project/">set up the project</a> before doing this step. 
 You should always <a href="../../Create-a-new-Branch/">create a new branch</a> everytime you develop a new feature,
 fix a bug or make other changes.</p>
+<h2 id="make-changes">Make changes<a class="headerlink" href="#make-changes" title="Permanent link">🔗</a></h2>
+<p>Now go ahead and make your changes. Take a look at the sub-pages of this page for more information about specific topics.</p>
 <h2 id="maven-verify">Maven verify<a class="headerlink" href="#maven-verify" title="Permanent link">🔗</a></h2>
-<p>Before you <a href="#make-changes">make changes</a> you should run <code>mvn verify</code> as explained
-<a href="../../../Setup-Project/#building-the-plugin-jar">here</a> to ensure the plugin successfully builds.</p>
 <p>After you made changes, you should also run <code>mvn verify</code> to check our requirements.
 If you have problems solving issues with our requirements there is also a page
 <a href="../Checking-Requirements/">Checking Requirements</a>, that you will probably read later.</p>
@@ -2731,8 +2761,25 @@ If you have problems solving issues with our requirements there is also a page
 You can execute <code>mvn package</code> instead of <code>mvn verify</code> for that.
 But don't forget, you need to successfully run <code>mvn verify</code>, before you make a pull request on GitHub!</p>
 </details>
-<h2 id="make-changes">Make changes<a class="headerlink" href="#make-changes" title="Permanent link">🔗</a></h2>
-<p>Now go ahead and make your changes. Take a look at the sub-pages of this page for more information about specific topics. </p>
+<h3 id="maven-profiles">Maven profiles<a class="headerlink" href="#maven-profiles" title="Permanent link">🔗</a></h3>
+<p>There are some Maven profiles that you can use to change which tests are executed upon <code>mvn verify</code> and <code>mvn package</code>.
+Some profiles can be used to speed up the build time.
+However, you should always run <code>mvn verify</code> with no enabled profiles before making a pull request on GitHub.</p>
+<p>You can use the <code>Test-None</code> profile to speed up the build process by skipping all tests.
+This can be useful when rapidly developing and testing changes in game. 
+Run <code>mvn verify -PTest-None</code> or <code>mvn package -PTest-None</code> or activate the profile in your IDE's Maven tab on the right side.</p>
+<p>The <code>Test-All</code> profile will run all tests, even the ones that are normally skipped.
+This is not really recommended, but if you did lots of big changes that
+may affect the whole project, you can use this profile to make sure that everything is working.
+kRun <code>mvn verify -PTest-All</code>, <code>mvn package -PTest-All</code> or activate the profile in your IDE's Maven tab on the right side.</p>
+<p>There are more profiles, but you don't need to know them in most cases.</p>
+<details class="info">
+<summary>The other Profiles</summary>
+<p>There are other profiles prefixed with <code>Test-</code>.
+You can use them to select a specific scope of tests that you want to run, after changing code in that scope.</p>
+<p>There is also a profile <code>Skip-Verification</code>, that will skip all verifications.
+It is only used in the build pipeline to skip verifications that were already done in earlier pipeline steps.</p>
+</details>
 <h2 id="commit">Commit<a class="headerlink" href="#commit" title="Permanent link">🔗</a></h2>
 <p>After you made changes, don't forget to run <code>mvn verify</code> again.
 You should also add a <a href="../../Maintaining-the-Changelog/">changelog</a> entry at this point.</p>
