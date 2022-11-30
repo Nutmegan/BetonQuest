@@ -1554,8 +1554,6 @@
       
         
       
-        
-      
     
     
       
@@ -1648,30 +1646,6 @@
   
   <span class="md-ellipsis">
     Elements
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Menu-Commands/" class="md-nav__link">
-        
-  
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.5 5.5c1.09 0 2-.92 2-2a2 2 0 0 0-2-2c-1.11 0-2 .88-2 2 0 1.08.89 2 2 2M9.89 19.38l1-4.38L13 17v6h2v-7.5l-2.11-2 .61-3A7.29 7.29 0 0 0 19 13v-2c-1.91 0-3.5-1-4.31-2.42l-1-1.58c-.4-.62-1-1-1.69-1-.31 0-.5.08-.81.08L6 8.28V13h2V9.58l1.79-.7L8.19 17l-4.9-1-.4 2 7 1.38Z"/></svg>
-  
-  <span class="md-ellipsis">
-    Commands
     
   </span>
   
@@ -1831,6 +1805,21 @@
       Commands
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#custom-menu-opening-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      Custom Menu Opening commands
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2762,6 +2751,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#custom-menu-opening-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      Custom Menu Opening commands
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2813,64 +2817,73 @@
 
 <h1 id="commands-and-permissions">Commands and permissions<a class="headerlink" href="#commands-and-permissions" title="Permanent link">🔗</a></h1>
 <h2 id="commands">Commands<a class="headerlink" href="#commands" title="Permanent link">🔗</a></h2>
+<p>Required arguments are displayed as such: <code>&lt;argument&gt;</code>.
+Optional arguments are displayed as such: <code>[argument]</code>.</p>
 <ul>
-<li><strong>/j</strong> - gives the journal</li>
-<li><strong>/backpack</strong> - opens the backpack</li>
-<li><strong>/q</strong> - lists all available admin commands</li>
-<li><strong>/q reload</strong> - reloads the plugin</li>
-<li><strong>/q objectives {playerName} [list/add/del/complete] [instruction]</strong> - shows player's currently active objectives</li>
-<li><strong>/q tags {playerName} [list/add/del] [tag]</strong> - lists all player's tags</li>
-<li><strong>/q globaltags {playerName} [list/add/del] [tag]</strong> - lists all global tags</li>
-<li><strong>/q points {playerName} [list/add/del] [category] [amount]</strong> - lists all player's points in all categories</li>
-<li><strong>/q globalpoints {playerName} [list/add/del] [category] [amount]</strong></li>
-<li><strong>/q journal {playerName} [list/add/del] [package.pointer] [date]</strong></li>
-<li><strong>/q event {playerName} {package.eventID}</strong> - fires an event for the player</li>
-<li><strong>/q condition {playerName} {package.conditionID}</strong> - shows if the player meet specified condition or not</li>
-<li><strong>/q item {package.itemID}</strong> - creates an item based on what you're holding in hand</li>
-<li><strong>/q give {package.itemID}</strong> - gives you an item defined in the configuration</li>
-<li><strong>/q purge {playerName}</strong> - deletes all player's data from the database</li>
-<li><strong>/q rename {tag/point/globalpoint/objective/entry} {oldName} {newName}</strong> - renames all specified things in the database</li>
-<li><strong>/q delete {tag/point/objective/entry} {name}</strong> - deletes all specified things in the database</li>
-<li><strong>/q backup</strong> - creates a backup of configuration files and database</li>
-<li><strong>/q update</strong> - updates the plugin to the newest version.</li>
-<li><strong>/q version</strong>: displays the versions of BetonQuest, the server and all hooked plugins</li>
-<li><strong>/q debug [true/false/ingame]</strong>: enable debug mode and write all down in a log file or disable the debug mode</li>
-<li><strong>/q download {gitHubNamespace} {ref} {type} {sourcePath} [targetPath] [recursive] [overwrite]</strong>: download
-  quests and templates from a github repository</li>
-<li><strong>/questlang {lang}</strong> - changes the language for the player (and globally if used from console). <code>default</code> language
-  will use the language defined in <em>config.yml</em>.</li>
+<li><code>/j</code> - Gives the journal</li>
+<li><code>/backpack</code> - Opens the backpack</li>
+<li><code>/q</code> - Lists all available admin commands</li>
+<li><code>/q reload</code> - Reloads the plugin</li>
+<li><code>/q objectives &lt;playerName&gt; &lt;list/add/del/complete&gt; &lt;objectiveName&gt;</code> - Shows player's currently active objectives</li>
+<li><code>/q tags &lt;playerName&gt; &lt;list/add/del&gt; &lt;tag&gt;</code> - Lists all player's tags</li>
+<li><code>/q globaltags &lt;playerName&gt; &lt;list/add/del&gt; &lt;tag&gt;</code> - Lists all global tags</li>
+<li><code>/q points &lt;playerName&gt; &lt;list/add/del&gt; &lt;category&gt; &lt;amount&gt;</code> - Lists all player's points in all categories</li>
+<li><code>/q globalpoints &lt;playerName&gt; &lt;list/add/del&gt; &lt;category&gt; &lt;amount&gt;</code></li>
+<li><code>/q journal &lt;playerName&gt; &lt;list/add/del&gt; &lt;package.pointer&gt; &lt;date&gt;</code></li>
+<li><code>/q event &lt;playerName&gt; &lt;package.eventID&gt;</code> - Fires an event for the player</li>
+<li><code>/q condition &lt;playerName&gt; &lt;package.conditionID&gt;</code> - Shows if the player meet specified condition or not</li>
+<li><code>/q item &lt;package.itemID&gt;</code> - Creates an item based on what you're holding in hand</li>
+<li><code>/q give &lt;package.itemID&gt;</code> - Gives you an item defined in the configuration</li>
+<li><code>/q purge &lt;playerName&gt;</code> - Deletes all player's data from the database</li>
+<li><code>/q rename &lt;tag/point/globalpoint/objective/entry&gt; &lt;oldName&gt; &lt;newName&gt;</code> - Renames all specified things in the database</li>
+<li><code>/q delete &lt;tag/point/objective/entry&gt; &lt;name&gt;</code> - Deletes all specified things in the database</li>
+<li><code>/q backup</code> - Creates a backup of configuration files and database</li>
+<li><code>/q update</code> - Updates the plugin to the newest version.</li>
+<li><code>/q version</code>: Displays the versions of BetonQuest, the server and all hooked plugins</li>
+<li><code>/q debug [true/false/ingame]</code>: Enable debug mode and write all down in a log file or disable the debug mode</li>
+<li><code>/q download &lt;gitHubNamespace&gt; &lt;ref&gt; &lt;type&gt; &lt;sourcePath&gt; [targetPath] [recursive] [overwrite]</code>: Download quests and templates from a GitHub repository</li>
+<li><code>/questlang &lt;lang&gt;</code> - Changes the language for the player (and globally if used from console). <code>default</code> language will use the language defined in <em>config.yml</em>.</li>
+<li><code>/rpgmenu reload &lt;menu&gt;</code> - Allows reloading all configuration files or just reloading the configuration of one specific menu.</li>
+<li><code>/rpgmenu list</code> - Lists all currently loaded menus and allows opening them just by clicking on them.</li>
+<li><code>/rpgmenu open &lt;menu&gt; [player]</code> - Opens a menu for you or another player. <a href="../Menu-Menu/#general-menu-settings">Opening conditions</a> of the menu will be ignored when using this command.</li>
 </ul>
+<h3 id="custom-menu-opening-commands">Custom Menu Opening commands<a class="headerlink" href="#custom-menu-opening-commands" title="Permanent link">🔗</a></h3>
+<p>The plugin lets you create a new command for each menu which allows all players to open the menu.<br />
+You can also specify BetonQuest conditions so that the menu can only be opened if the player matches specific conditions.
+Have a look at the <a href="../Menu-Menu/#general-menu-settings">menu settings</a> for more information.</p>
+<p>The server must be restarted to unregister command tab completions.</p>
 <h2 id="aliases">Aliases<a class="headerlink" href="#aliases" title="Permanent link">🔗</a></h2>
 <ul>
-<li><strong>/j</strong>: bj, journal, bjournal, betonjournal, betonquestjournal</li>
-<li><strong>/backpack</strong>: b, bb, bbackpack, betonbackpack, betonquestbackpack</li>
-<li><strong>/q</strong>: bq, bquest, bquests, betonquest, betonquests, quest, quests<ul>
-<li><strong>objective</strong>: o, objectives</li>
-<li><strong>tag</strong>: t, tags</li>
-<li><strong>point</strong>: p, points</li>
-<li><strong>event</strong>: e, events</li>
-<li><strong>condition</strong>: c, conditions</li>
-<li><strong>journal</strong>: j, journals</li>
-<li><strong>item</strong>: i, items</li>
-<li><strong>give</strong>: g</li>
-<li><strong>rename</strong>: r</li>
-<li><strong>delete</strong>: d, del</li>
-<li><strong>create</strong>: package</li>
+<li><code>/j</code>: bj, journal, bjournal, betonjournal, betonquestjournal</li>
+<li><code>/backpack</code>: b, bb, bbackpack, betonbackpack, betonquestbackpack</li>
+<li><code>/q</code>: bq, bquest, bquests, betonquest, betonquests, quest, quests<ul>
+<li><code>objective</code>: o, objectives</li>
+<li><code>tag</code>: t, tags</li>
+<li><code>point</code>: p, points</li>
+<li><code>event</code>: e, events</li>
+<li><code>condition</code>: c, conditions</li>
+<li><code>journal</code>: j, journals</li>
+<li><code>item</code>: i, items</li>
+<li><code>give</code>: g</li>
+<li><code>rename</code>: r</li>
+<li><code>delete</code>: d, del</li>
+<li><code>create</code>: package</li>
 </ul>
 </li>
-<li><strong>/questlang</strong>: ql</li>
+<li><code>/questlang</code>: ql</li>
+<li><code>/rpgmenu</code>: rpgmenus, menu, menus, rpgm, qm</li>
 </ul>
 <h2 id="permissions">Permissions<a class="headerlink" href="#permissions" title="Permanent link">🔗</a></h2>
 <ul>
-<li><strong>betonquest.admin</strong> - allows using admin commands (/q ...) and creating an NPC from blocks</li>
-<li><strong>betonquest.journal</strong> - allows using /j command (default for players)</li>
-<li><strong>betonquest.backpack</strong> - allows using /backpack command (default for players)</li>
-<li><strong>betonquest.conversation</strong> - allows talking with NPCs (default for players)</li>
-<li><strong>betonquest.language</strong> - allows changing the language (default for players)</li>
+<li><code>betonquest.admin</code> - allows using admin commands (/q, /rpgmenu ...)</li>
+<li><code>betonquest.journal</code> - allows using /j command (default for players)</li>
+<li><code>betonquest.backpack</code> - allows using /backpack command (default for players)</li>
+<li><code>betonquest.conversation</code> - allows talking with NPCs (default for players)</li>
+<li><code>betonquest.language</code> - allows changing the language (default for players)</li>
 </ul>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Don't give <strong>betonquest.admin</strong> permission to people you don't fully trust. They can use <strong>/q config</strong> command to add a <code>command</code> event, and this way execute any command as the console. This might be dangerous.</p>
+<p>Don't give <code>betonquest.admin</code> permission to people you don't fully trust. They can use <code>/q config</code> command to add a <code>command</code> event, and this way execute any command as the console. This might be dangerous.</p>
 </div>
 <h2 id="main-command-details">Main command details<a class="headerlink" href="#main-command-details" title="Permanent link">🔗</a></h2>
 <p>Reloading loads all data from configuration, but not everything is updated. Player's data isn't touched to avoid lags made by database saving. The database is also the same, you will have to reload/restart the whole server for the database to change.</p>
@@ -2970,7 +2983,7 @@ logged and the download is stopped.</p>
                 
               
               
-                Thanks for your feedback! Help us improve this page by using our  <a href="https://github.com/BetonQuest/BetonQuest/issues/new/?template=docs-feedback.yml&title=[Docs Feedback]+Permissions%20%26%20Commands+-+/Documentation/Commands-and-permissions/&version=2.0.0-DEV-459"> feedback form</a>.
+                Thanks for your feedback! Help us improve this page by using our  <a href="https://github.com/BetonQuest/BetonQuest/issues/new/?template=docs-feedback.yml&title=[Docs Feedback]+Permissions%20%26%20Commands+-+/Documentation/Commands-and-permissions/&version=2.0.0-DEV-460"> feedback form</a>.
               
             </div>
           
