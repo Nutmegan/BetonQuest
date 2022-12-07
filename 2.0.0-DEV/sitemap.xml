@@ -31,6 +31,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://docs.betonquest.org/2.0.0-DEV/Documentation/About-Types/</loc>
+         <lastmod>2022-12-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://docs.betonquest.org/2.0.0-DEV/Documentation/CHANGELOG/</loc>
          <lastmod>2022-12-07</lastmod>
          <changefreq>daily</changefreq>
@@ -61,7 +66,22 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://docs.betonquest.org/2.0.0-DEV/Documentation/Data-Formats/</loc>
+         <lastmod>2022-12-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://docs.betonquest.org/2.0.0-DEV/Documentation/Events-List/</loc>
+         <lastmod>2022-12-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://docs.betonquest.org/2.0.0-DEV/Documentation/Items/</loc>
+         <lastmod>2022-12-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://docs.betonquest.org/2.0.0-DEV/Documentation/Journal/</loc>
          <lastmod>2022-12-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -111,7 +131,17 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://docs.betonquest.org/2.0.0-DEV/Documentation/Reference/</loc>
+         <loc>https://docs.betonquest.org/2.0.0-DEV/Documentation/Parties/</loc>
+         <lastmod>2022-12-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://docs.betonquest.org/2.0.0-DEV/Documentation/Player-Hider/</loc>
+         <lastmod>2022-12-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://docs.betonquest.org/2.0.0-DEV/Documentation/Quest-Cancelers/</loc>
          <lastmod>2022-12-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
