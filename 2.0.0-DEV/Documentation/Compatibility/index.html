@@ -2033,13 +2033,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#holographicdisplays" class="md-nav__link">
+  <a href="#holograms" class="md-nav__link">
     <span class="md-ellipsis">
-      HolographicDisplays
+      Holograms
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="HolographicDisplays">
+    <nav class="md-nav" aria-label="Holograms">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -4968,13 +4968,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#holographicdisplays" class="md-nav__link">
+  <a href="#holograms" class="md-nav__link">
     <span class="md-ellipsis">
-      HolographicDisplays
+      Holograms
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="HolographicDisplays">
+    <nav class="md-nav" aria-label="Holograms">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -6194,10 +6194,10 @@
 
 
 <h1 id="compatibility">Compatibility<a class="headerlink" href="#compatibility" title="Permanent link">🔗</a></h1>
-<p><strong>In total 32 plugins have dedicated support for BetonQuest.</strong></p>
+<p><strong>In total 33 plugins have dedicated support for BetonQuest.</strong></p>
 <p>BetonQuest hooks into other plugins by itself to provide more events, conditions and objectives or other features. 
-25 plugins are supported right now:  <br />
-<em>AureliumSkills, Brewery, Citizens, Denizen, EffectLib, Heroes, HolographicDisplays, JobsReborn, LuckPerms, Magic,
+26 plugins are supported right now:  <br />
+<em>AureliumSkills, Brewery, Citizens, DecentHolograms, Denizen, EffectLib, Heroes, HolographicDisplays, JobsReborn, LuckPerms, Magic,
 mcMMO, MythicLib, MMOCore, MMOItems, MythicMobs, PlaceholderAPI, ProtocolLib, Quests, Shopkeepers, ProSkillAPI,
 Skript, Vault, WorldEdit, FastAsyncWorldEdit and WorldGuard.</em></p>
 <p>Some plugins also hook into BetonQuest and provide support by themselves:<br />
@@ -6453,34 +6453,76 @@ be displayed to the player for which you ran the event.</p>
 <div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">heroesexp primary 1000</span><span class="w"></span>
 </code></pre></div>
 </div>
-<h2 id="holographicdisplays"><a href="http://dev.bukkit.org/bukkit-plugins/holographic-displays/">HolographicDisplays</a><a class="headerlink" href="#holographicdisplays" title="Permanent link">🔗</a></h2>
+<h2 id="holograms">Holograms<a class="headerlink" href="#holograms" title="Permanent link">🔗</a></h2>
 <div class="admonition info">
-<p><strong>Required HolographicDisplays version: <em>3.0.0</em> or above</strong> </p>
+<p class="admonition-title">Required Dependencies</p>
+<p>The following feature can be activated by using any of the following plugins:</p>
+<table>
+<thead>
+<tr>
+<th>Plugin</th>
+<th>Required Version</th>
+<th>Additional Dependencies</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DecentHolograms</td>
+<td>2.7.5 or above</td>
+<td><a href="https://www.spigotmc.org/resources/6245/">PlaceholderAPI</a> for in-line variables.</td>
+</tr>
+<tr>
+<td>Holographic Displays</td>
+<td>3.0.0 or above</td>
+<td><a href="https://www.spigotmc.org/resources/1997/">ProtocolLib</a> for conditioned holograms.</td>
+</tr>
+</tbody>
+</table>
+<p>If you have both plugins installed, you can use the <a href="../Configuration/#default-hologram-plugin"><code>default_hologram</code> option in "<em>config.yml</em>"</a> to set which plugin should be used.</p>
 </div>
 <h3 id="hidden-holograms">Hidden Holograms<a class="headerlink" href="#hidden-holograms" title="Permanent link">🔗</a></h3>
-<p>Installing this plugin will enable you to create hidden holograms, which will be shown to players only if they meet specified conditions. Note that you need to have <a href="https://www.spigotmc.org/resources/1997/">ProtocolLib</a> installed in order to hide holograms from certain players.</p>
-<p>In order to create a hologram, you have to add a <code>holograms</code> section. Add a node named as your hologram to this section and define <code>lines</code>, <code>conditions</code> and <code>location</code> subnodes. The first one should be a list of texts - these will be the lines of a hologram. Color codes are supported. Second is a list of conditions separated by commas. Third is a location in a standard format, like in <code>teleport</code> event. An example of such hologram definition:</p>
+<p>Installing either of these plugins will enable you to create hidden holograms, which will be shown to players only if they meet specified conditions.</p>
+<p>In order to create a hologram, you have to add a <code>holograms</code> section. Add a node named as your hologram to this section
+and define <code>lines</code>, <code>conditions</code> and <code>location</code> subnodes. The first one should be a list of texts - these will be the lines
+of a hologram. Color codes are supported. Second is a list of conditions separated by commas. Third is a location in a standard
+format, like in <code>teleport</code> event. An example of such hologram definition:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">holograms</span><span class="p">:</span><span class="w"></span>
 <span class="w">  </span><span class="nt">beton</span><span class="p">:</span><span class="w"></span>
 <span class="w">    </span><span class="nt">lines</span><span class="p">:</span><span class="w"></span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;item:custom_item&#39;</span><span class="w"></span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;&amp;2Top</span><span class="nv"> </span><span class="s">questers</span><span class="nv"> </span><span class="s">this</span><span class="nv"> </span><span class="s">month&#39;</span><span class="w"></span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;top:completed_quests;desc;10;&amp;a;§6;2;&amp;6&#39;</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;&amp;2Your</span><span class="nv"> </span><span class="s">amount:</span><span class="nv"> </span><span class="s">&amp;6{bq:azerothquests:point.completed_quests.amount}&#39;</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;&amp;Total</span><span class="nv"> </span><span class="s">amount:</span><span class="nv"> </span><span class="s">&amp;6{bqg:azerothquests:globalpoint.total_completed_quests.amount}&#39;</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;&amp;2Your</span><span class="nv"> </span><span class="s">amount:</span><span class="nv"> </span><span class="s">&amp;6%point.completed_quests.amount%&#39;</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;&amp;Total</span><span class="nv"> </span><span class="s">amount:</span><span class="nv"> </span><span class="s">&amp;6%azerothquests.globalpoint.total_completed_quests.amount%&#39;</span><span class="w"></span>
 <span class="w">    </span><span class="nt">conditions</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">has_some_quest, !finished_some_quest</span><span class="w">    </span>
 <span class="w">    </span><span class="nt">location</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">100;200;300;world</span><span class="w"></span>
 <span class="w">    </span><span class="c1"># How often to check conditions (optional)</span><span class="w"></span>
 <span class="w">    </span><span class="nt">check_interval</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">20</span><span class="w"></span>
 </code></pre></div>
-<p>A line can also represent a floating item. To do so enter the line as 'item:<code>custom_item</code>'. It will be replaced with the <code>custom_item</code> defined in the <code>items</code> section. If the Item is defined for example as map, a floating map will be seen between two lines of text.</p>
-<p>Holograms created by BetonQuest can rank users by the score of a point. Such scoreboards (not to be confused with the Minecraft vanilla scoreboard) are configured as one line and replaced by multiple lines according to the limit definition. Each scoreboard line comes in the format <code>#. name - score</code> The short syntax is 'top:<code>point</code>;<code>order</code>;<code>limit</code>'. The specified <code>point</code> must be located inside the package the hologram is declared in. To use a point from another package, put <code>package.point</code> instead. The <code>order</code> is either 'desc' for descending or 'asc' for ascending. If something other is specified, descending will be used by default. The limit should be a positive number. In the short declaration, the whole line will be white. To color each of the four elements of a line (place, name, dash and score), the definition syntax can be extended to 'top:<code>point</code>;<code>order</code>;<code>limit</code>;<code>c1</code>;<code>c2</code>;<code>c3</code>;<code>c4</code>'. The color codes can be prefixed with either <code>§</code> or <code>&amp;</code>, but do not have to be. If for example <code>c2</code> is left blank (two following semicolons), it is treated as an 'f' (color code for white).</p>
-<p>Each BetonQuest variable can be displayed on a hologram in a text line. However, the syntax differs slightly since this uses a HolographicDisplays utility. The syntax is '{bq:<code>package</code>:<code>variable</code>}'. The package name cannot be left empty. The <code>variable</code> uses the same definition syntax as in conversations. Variables are displayed for each player individually.</p>
+<p>A line can also represent a floating item. To do so enter the line as 'item:<code>custom_item</code>'. It will be replaced with the
+<code>custom_item</code> defined in the <code>items</code> section. If the Item is defined for example as map, a floating map will be seen between two lines of text.</p>
+<p>Holograms created by BetonQuest can rank users by the score of a point. Such scoreboards (not to be confused with the
+Minecraft vanilla scoreboard) are configured as one line and replaced by multiple lines according to the limit definition.
+Each scoreboard line comes in the format <code>#. name - score</code> The short syntax is 'top:<code>point</code>;<code>order</code>;<code>limit</code>'. The specified
+<code>point</code> must be located inside the package the hologram is declared in. To use a point from another package, put <code>package.point</code>
+instead. The <code>order</code> is either 'desc' for descending or 'asc' for ascending. If something other is specified, descending will
+be used by default. The limit should be a positive number. In the short declaration, the whole line will be white. To color
+each of the four elements of a line (place, name, dash and score), the definition syntax can be extended to
+'top:<code>point</code>;<code>order</code>;<code>limit</code>;<code>c1</code>;<code>c2</code>;<code>c3</code>;<code>c4</code>'. The color codes can be prefixed with either <code>§</code> or <code>&amp;</code>, but do not have
+to be. If for example <code>c2</code> is left blank (two following semicolons), it is treated as an 'f' (color code for white).</p>
+<p>Each BetonQuest variable can be displayed on a hologram in a text line. These variables use the same definition syntax as
+in conversations such that; '<code>%package.variable%</code>'. Where the <code>package</code> part is optional if the hologram is defined in the
+same package as the variable. If you wish to refer to a variable that is <em>not</em> in the same package as the hologram, then you
+must specify a <a href="../Packages-%26-Templates/">package</a> before the <code>variable</code>.</p>
 <div class="admonition warning">
 <p class="admonition-title">Potential lags</p>
-<p>The HolographicDisplays documentations warns against using too many individual hologram variables since they are rendered for each player individually. To save resources, there is a variable without individual rendering. To use it replace 'bq' with 'bqg'. However, this means that only player-unrelated variables such as <code>globalpoint</code> and <code>globaltag</code> can be used. Using them with player specific variables will not necessarily throw errors but can produce weird results.</p>
+<p>The HolographicDisplays documentations warns against using too many individual hologram variables since they are rendered
+for each player individually. If you are using HolographicDisplays, to save resources, it is recommended to minimise the use of non-static variables.</p>
 </div>
-<p>The holograms are updated every 10 seconds. If you want to make it faster, add <code>hologram_update_interval</code> option in <em>config.yml</em> file and set it to a number of ticks you want to pass between updates (one second is 20 ticks). Don't set it to 0 or negative numbers, it will result in an error.</p>
+<p>The hologram's conditions are checked every 10 seconds, meaning a hologram will respond to a condition being met or un-met
+every 10 seconds. If you want to make it faster, add <code>hologram_update_interval</code> option in <em>config.yml</em> file and set it to a
+number of ticks you want to pass between updates (one second is 20 ticks). Don't set it to 0 or negative numbers, it will result in an error.</p>
+<p>Keep in mind that each hologram plugin also updates it's holograms on a timer individually, meaning that hologram variables will refresh at a much quicker rate than the above.</p>
 <h3 id="npc-holograms">NPC Holograms<a class="headerlink" href="#npc-holograms" title="Permanent link">🔗</a></h3>
 <p>If Citizens is also installed then you can have holograms configured relative to an npc. Add the following:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">npc_holograms</span><span class="p">:</span><span class="w"></span>
@@ -7248,7 +7290,7 @@ If you have only a <code>.schem</code> schematic, simply append <code>.schem</co
                 
               
               
-                Thanks for your feedback! Help us improve this page by using our  <a href="https://github.com/BetonQuest/BetonQuest/issues/new/?template=docs-feedback.yml&title=[Docs Feedback]+Compatibility%20List+-+/Documentation/Compatibility/&version=2.0.0-DEV-472"> feedback form</a>.
+                Thanks for your feedback! Help us improve this page by using our  <a href="https://github.com/BetonQuest/BetonQuest/issues/new/?template=docs-feedback.yml&title=[Docs Feedback]+Compatibility%20List+-+/Documentation/Compatibility/&version=2.0.0-DEV-473"> feedback form</a>.
               
             </div>
           
