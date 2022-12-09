@@ -2036,6 +2036,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#200-dev-450-package-section" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.0.0-DEV-450 - Package Section
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2922,6 +2931,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#200-dev-450-package-section" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.0.0-DEV-450 - Package Section
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2962,6 +2980,7 @@ The migration must be done manually. This will not change while BQ 2.0 is in dev
 <li><a href="#200-dev-98-rpgmenu-merge">2.0.0-DEV-98 - RPGMenu Merge</a></li>
 <li><a href="#200-dev-238-package-structure-rework">2.0.0-DEV-238 - Package Structure Rework</a></li>
 <li><a href="#200-dev-337-event-scheduling-rework">2.0.0-DEV-337 - Event Scheduling Rework</a></li>
+<li><a href="#200-dev-450-package-section">2.0.0-DEV-450 - Package section</a></li>
 </ul>
 <h3 id="200-dev-98-rpgmenu-merge">2.0.0-DEV-98 - RPGMenu Merge<a class="headerlink" href="#200-dev-98-rpgmenu-merge" title="Permanent link">🔗</a></h3>
 <p>All existing RPGMenu users must update their RPGMenu config file. Simply rename it from <code>rpgmenu.config.yml</code> to
@@ -3093,6 +3112,22 @@ You could also do this or use any file structure:
 <p>The former value is now the events value.</p>
 </li>
 </ol>
+</p>
+</div>
+</li>
+</ul>
+<h3 id="200-dev-450-package-section">2.0.0-DEV-450 - Package Section<a class="headerlink" href="#200-dev-450-package-section" title="Permanent link">🔗</a></h3>
+<ul>
+<li>
+<p>There is now a new section <code>package</code> for organizing package related settings.
+  As a result of this the <code>enabled</code> boolean was moved to this section.
+  If you use the <code>enabled</code> boolean you need to move it to the <code>package</code> section.</p>
+<div class="admonition info">
+<p class="admonition-title">Example<div class="highlight"><span class="filename">Old Syntax</span><pre><span></span><code><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
+</code></pre></div>
+<div class="highlight"><span class="filename">New Syntax</span><pre><span></span><code><span class="nt">package</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
+</code></pre></div>
 </p>
 </div>
 </li>
