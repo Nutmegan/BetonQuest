@@ -3791,10 +3791,13 @@ with the name of the required entity. Replace all spaces with <code>_</code> her
 </code></pre></div>
 </div>
 <h2 id="experience-experience">Experience: <code>experience</code><a class="headerlink" href="#experience-experience" title="Permanent link">🔗</a></h2>
-<p>This condition is met when the player has the specified amount of experience points. You can check for whole levels by adding the <code>level</code> argument.</p>
+<p>This condition is met when the player has the specified amount of experience levels.
+You can also define decimal numbers, for example <code>experience 1.5</code> will be met when the player has 1.5 or more experience levels.
+If you want to check for an absolute amount of experience points you can convert it to decimal levels.</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">experience 30 level</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">experience 30</span><span class="w"></span>
+<span class="l l-Scalar l-Scalar-Plain">experience 5.5</span><span class="w"></span>
 </code></pre></div>
 </div>
 <h2 id="facing-direction-facing">Facing direction: <code>facing</code><a class="headerlink" href="#facing-direction-facing" title="Permanent link">🔗</a></h2>
@@ -4142,7 +4145,7 @@ players in the party. You don't have to specify all those arguments, you can use
                 
               
               
-                Thanks for your feedback! Help us improve this page by using our  <a href="https://github.com/BetonQuest/BetonQuest/issues/new/?template=docs-feedback.yml&title=[Docs Feedback]+Conditions%20List+-+/Documentation/Conditions-List/&version=2.0.0-DEV-484"> feedback form</a>.
+                Thanks for your feedback! Help us improve this page by using our  <a href="https://github.com/BetonQuest/BetonQuest/issues/new/?template=docs-feedback.yml&title=[Docs Feedback]+Conditions%20List+-+/Documentation/Conditions-List/&version=2.0.0-DEV-485"> feedback form</a>.
               
             </div>
           
